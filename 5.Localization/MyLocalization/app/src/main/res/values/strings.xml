@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NewDevelopment_Android2_Localization</string>
+    <string name="hello_world">Hello World %1$s, you have %2$d pokes from %3$s</string>
+    <string name="good_morning">Good Morning</string>
+
+
+    <plurals name="numberOfSongsAvailable">
+        <item quantity="one">%d song found.</item>
+        <item quantity="other">%d songs found.</item>
+    </plurals>
+
+
+   <string name="app_homeurl">
+       Visit us at <xliff:g id="application_homepage">https://dicoding.com</xliff:g>
+   </string>
+
+</resources>

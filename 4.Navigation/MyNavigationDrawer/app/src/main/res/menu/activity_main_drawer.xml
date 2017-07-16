@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Foto Kamera" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Galleri" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Mainkan Slideshow" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Konfigurasi" />
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/ic_shopping_cart"
+            android:title="Keranjang Belanja" />
+    </group>
+
+    <item android:title="Komunikasi">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Bagikan" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Kirim Pesan" />
+        </menu>
+    </item>
+
+    <item android:title="Peta">
+        <menu>
+            <item
+                android:id="@+id/nav_map"
+                android:icon="@drawable/ic_map_black"
+                android:title="Peta" />
+            <item
+                android:id="@+id/nav_hotel"
+                android:icon="@drawable/ic_local_hotel"
+                android:title="Hotel" />
+            <item
+                android:id="@+id/nav_subway"
+                android:icon="@drawable/ic_subway_black"
+                android:title="Subway" />
+        </menu>
+    </item>
+</menu>
