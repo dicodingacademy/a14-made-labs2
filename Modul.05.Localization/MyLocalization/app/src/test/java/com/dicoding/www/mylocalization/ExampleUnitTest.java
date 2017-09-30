@@ -1,4 +1,4 @@
-package com.dicoding.www.newdevelopment_android2_localization;
+package com.dicoding.www.mylocalization;
 
 import org.junit.Test;
 

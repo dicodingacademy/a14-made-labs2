@@ -4,7 +4,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "com.dicoding.www.newdevelopment_android2_localization"
+        applicationId "com.dicoding.www.mylocalization"
         minSdkVersion 21
         targetSdkVersion 24
         versionCode 1

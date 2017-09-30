@@ -1,7 +1,12 @@
-package com.dicoding.www.newdevelopment_android2_localization;
+package com.dicoding.www.mylocalization;
 
+import android.content.Intent;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tvHello, tvPlural, tvXliff;
