@@ -19,18 +19,18 @@ import java.util.ArrayList;
 public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdapter.CategoryViewHolder>{
     private Context context;
 
-    public ArrayList<President> getListPresident() {
+    ArrayList<President> getListPresident() {
         return listPresident;
     }
 
-    public void setListPresident(ArrayList<President> listPresident) {
+    void setListPresident(ArrayList<President> listPresident) {
         this.listPresident = listPresident;
     }
 
     private ArrayList<President> listPresident;
 
 
-    public ListPresidentAdapter(Context context) {
+    ListPresidentAdapter(Context context) {
         this.context = context;
     }
 
@@ -62,7 +62,7 @@ public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdap
         TextView tvRemarks;
         ImageView imgPhoto;
 
-        public CategoryViewHolder(View itemView) {
+        CategoryViewHolder(View itemView) {
             super(itemView);
             tvName = (TextView)itemView.findViewById(R.id.tv_item_name);
             tvRemarks = (TextView)itemView.findViewById(R.id.tv_item_remarks);

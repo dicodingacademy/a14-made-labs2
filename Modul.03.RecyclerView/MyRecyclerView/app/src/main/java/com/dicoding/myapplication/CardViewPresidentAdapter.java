@@ -22,23 +22,22 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
     private ArrayList<President> listPresident;
     private Context context;
 
-    public CardViewPresidentAdapter(Context context) {
+    CardViewPresidentAdapter(Context context) {
         this.context = context;
     }
 
-    public ArrayList<President> getListPresident() {
+    private ArrayList<President> getListPresident() {
         return listPresident;
     }
 
-    public void setListPresident(ArrayList<President> listPresident) {
+    void setListPresident(ArrayList<President> listPresident) {
         this.listPresident = listPresident;
     }
 
     @Override
     public CardViewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_president, parent, false);
-        CardViewViewHolder viewHolder = new CardViewViewHolder(view);
-        return viewHolder;
+        return new CardViewViewHolder(view);
     }
 
     @Override
@@ -74,11 +73,11 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
         return getListPresident().size();
     }
 
-    public class CardViewViewHolder extends RecyclerView.ViewHolder{
+    class CardViewViewHolder extends RecyclerView.ViewHolder{
         ImageView imgPhoto;
         TextView tvName, tvRemarks;
         Button btnFavorite, btnShare;
-        public CardViewViewHolder(View itemView) {
+        CardViewViewHolder(View itemView) {
             super(itemView);
             imgPhoto = (ImageView)itemView.findViewById(R.id.img_item_photo);
             tvName = (TextView)itemView.findViewById(R.id.tv_item_name);

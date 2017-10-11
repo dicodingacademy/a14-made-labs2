@@ -19,24 +19,22 @@ public class GridPresidentAdapter extends RecyclerView.Adapter<GridPresidentAdap
     private Context context;
     private ArrayList<President> listPresident;
 
-    public ArrayList<President> getListPresident() {
+    private ArrayList<President> getListPresident() {
         return listPresident;
     }
 
-    public void setListPresident(ArrayList<President> listPresident) {
+    void setListPresident(ArrayList<President> listPresident) {
         this.listPresident = listPresident;
     }
 
-    public GridPresidentAdapter(Context context) {
+    GridPresidentAdapter(Context context) {
         this.context = context;
     }
 
     @Override
     public GridViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_president, parent, false);
-        GridViewHolder gridViewHolder = new GridViewHolder(view);
-        return gridViewHolder;
-    }
+        return new GridViewHolder(view);}
 
     @Override
     public void onBindViewHolder(GridViewHolder holder, int position) {
@@ -51,9 +49,9 @@ public class GridPresidentAdapter extends RecyclerView.Adapter<GridPresidentAdap
         return getListPresident().size();
     }
 
-    public class GridViewHolder extends RecyclerView.ViewHolder{
+    class GridViewHolder extends RecyclerView.ViewHolder{
         ImageView imgPhoto;
-        public GridViewHolder(View itemView) {
+        GridViewHolder(View itemView) {
             super(itemView);
             imgPhoto = (ImageView)itemView.findViewById(R.id.img_item_photo);
         }
