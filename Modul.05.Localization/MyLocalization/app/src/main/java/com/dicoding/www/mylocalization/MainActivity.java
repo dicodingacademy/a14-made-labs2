@@ -2,14 +2,14 @@ package com.dicoding.www.mylocalization;
 
 import android.content.Intent;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tvHello, tvPlural, tvXliff;
+    TextView tvHello, tvPlural, tvXliff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,21 +19,16 @@ public class MainActivity extends AppCompatActivity {
         tvPlural = (TextView)findViewById(R.id.tv_plural);
         tvXliff = (TextView)findViewById(R.id.tv_xliff);
 
-
         int pokeCount = 3;
         String hello = String.format(getResources().getString(R.string.hello_world), "Narenda Wicaksono", pokeCount, "Yoza Aprilio");
 
-
         tvHello.setText(hello);
-
 
         int songCount = 5;
         String pluralText = getResources().getQuantityString(R.plurals.numberOfSongsAvailable, songCount, songCount);
         tvPlural.setText(pluralText);
 
-
         tvXliff.setText(getResources().getString(R.string.app_homeurl));
-
     }
 
     @Override
