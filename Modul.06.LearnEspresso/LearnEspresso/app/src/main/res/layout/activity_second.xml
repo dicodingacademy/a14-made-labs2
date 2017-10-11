@@ -13,5 +13,5 @@
         android:id="@+id/tv_result_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Result View"/>
+        android:text="@string/result_view"/>
 </RelativeLayout>

@@ -6,7 +6,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
-    private TextView tvResultView;
+    TextView tvResultView;
     public static String EXTRA_INPUT = "extra_input";
 
     @Override

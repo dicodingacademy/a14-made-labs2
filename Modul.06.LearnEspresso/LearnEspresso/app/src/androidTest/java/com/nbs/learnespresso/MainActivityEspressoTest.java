@@ -35,10 +35,10 @@ public class MainActivityEspressoTest {
     @Test
     public void ensureMoveActivityWithData(){
         onView(withId(R.id.edt_text))
-                .perform(typeText("DicodingAndroidAsscociate"), closeSoftKeyboard());
+                .perform(typeText("DicodingMenjadiAndroidDeveloperExpert"), closeSoftKeyboard());
         onView(withId(R.id.btn_swicth_activity)).perform(click());
 
-        onView(withId(R.id.tv_result_view)).check(matches(withText("DicodingAndroidAsscociate")));
+        onView(withId(R.id.tv_result_view)).check(matches(withText("DicodingMenjadiAndroidDeveloperExpert")));
     }
 
 }

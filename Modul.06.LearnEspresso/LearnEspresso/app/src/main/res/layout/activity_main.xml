@@ -22,17 +22,17 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:text="Hasil Cetak Teks"
+        android:text="@string/hasil_cetak_teks"
         android:layout_marginBottom="@dimen/activity_vertical_margin"/>
     <Button
         android:id="@+id/btn_change_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rubah Text"
+        android:text="@string/rubah_text"
         android:layout_marginBottom="8dp"/>
     <Button
         android:id="@+id/btn_swicth_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pindah Activity"/>
+        android:text="@string/pindah_activity"/>
 </LinearLayout>

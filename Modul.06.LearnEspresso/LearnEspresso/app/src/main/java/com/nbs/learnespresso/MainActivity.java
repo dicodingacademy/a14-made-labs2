@@ -11,9 +11,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity
     implements View.OnClickListener{
 
-    private EditText edtText;
-    private Button btnChangeText, btnSwitchActivity;
-    private TextView tvPrintedText;
+    EditText edtText;
+    Button btnChangeText, btnSwitchActivity;
+    TextView tvPrintedText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
