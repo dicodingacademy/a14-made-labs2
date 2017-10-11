@@ -26,11 +26,13 @@
                 android:text="@string/_6_photos"
                 android:gravity="center_vertical"
                 android:drawableLeft="@drawable/ic_collections_white_18dp"
+                android:drawableStart="@drawable/ic_collections_white_18dp"
                 android:drawablePadding="4dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:background="#4D000000"
                 android:textColor="@android:color/white"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_gravity="bottom" />
         </FrameLayout>
@@ -84,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:layout_marginEnd="16dp"
                     android:text="@string/display"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -102,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:layout_marginEnd="16dp"
                     android:text="@string/size"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -120,6 +124,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:layout_marginEnd="16dp"
                     android:text="@string/battery"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -150,11 +155,13 @@
                 android:src="@drawable/photo_2"
                 android:layout_centerVertical="true"
                 android:id="@+id/profile_image"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"/>
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="16dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/profile_image"
+                android:layout_toEndOf="@+id/profile_image"
                 android:text="@string/narenda_wicaksono"
                 android:textColor="@android:color/black"
                 android:layout_centerVertical="true"/>
