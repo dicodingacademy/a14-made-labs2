@@ -25,10 +25,12 @@
                 android:text="@string/_6_photos"
                 android:gravity="center_vertical"
                 android:drawableLeft="@drawable/ic_collections_white_18dp"
+                android:drawableStart="@drawable/ic_collections_white_18dp"
                 android:drawablePadding="4dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:background="#4D000000"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_gravity="bottom" />
         </FrameLayout>
@@ -108,10 +110,13 @@
                 android:src="@drawable/photo_2"
                 android:layout_centerVertical="true"
                 android:id="@+id/profile_image"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"/>
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                />
             <TextView
                 style="@style/TextContent"
                 android:layout_toRightOf="@id/profile_image"
+                android:layout_toEndOf="@id/profile_image"
                 android:text="@string/narenda_wicaksono"
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
