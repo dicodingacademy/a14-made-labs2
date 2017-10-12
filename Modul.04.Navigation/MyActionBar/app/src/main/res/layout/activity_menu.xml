@@ -14,5 +14,5 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ini adalah menu activity"/>
+        android:text="@string/ini_adalah_menu_activity"/>
 </LinearLayout>

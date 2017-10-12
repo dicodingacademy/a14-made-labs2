@@ -3,6 +3,8 @@ package com.dicoding.mynavigationdrawer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,14 +23,20 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private CircleImageView profileCircleImageView;
-    private String profileImageUrl = "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAb8AAAAJGVlMmE5ZmNiLTZlMDQtNDcyMi04OWUzLTcwYWIxZTMzYjhmZA.jpg";
+    CircleImageView profileCircleImageView;
+    String profileImageUrl = "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAb8AAAAJGVlMmE5ZmNiLTZlMDQtNDcyMi04OWUzLTcwYWIxZTMzYjhmZA.jpg";
+
+    Fragment currentFragment;
+
+    DrawerLayout drawer;
+    Toolbar toolbar;
+    ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setTitle("Home");
@@ -47,11 +55,8 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         profileCircleImageView = (CircleImageView) navigationView.getHeaderView(0).findViewById(R.id.imageView);
@@ -60,6 +65,36 @@ public class MainActivity extends AppCompatActivity
                 .load(profileImageUrl)
                 .into(profileCircleImageView);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        /*
+        Jika fragment masih null, maka redirect ke fragment home
+        Berguna ketika aplikasi pertama dijalankan untuk mengisi halaman default
+         */
+        if (currentFragment == null){
+            currentFragment = new HomeFragment();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_main,currentFragment)
+                    .commit();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        drawer.removeDrawerListener(toggle);
     }
 
     @Override
@@ -100,9 +135,23 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        Bundle bundle = new Bundle();
+
+        if (id == R.id.nav_home){
+
+            currentFragment = new HomeFragment();
+
+        } else if (id == R.id.nav_camera) {
+
+            currentFragment = new HalamanFragment();
+            bundle.putString(HalamanFragment.EXTRAS,"Camera");
+            currentFragment.setArguments(bundle);
+
         } else if (id == R.id.nav_gallery) {
+
+            currentFragment = new HalamanFragment();
+            bundle.putString(HalamanFragment.EXTRAS,"Gallery");
+            currentFragment.setArguments(bundle);
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -113,6 +162,14 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_send) {
 
         }
+
+        /*
+        Ganti halaman dengan memanggil fragment replace
+         */
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_main, currentFragment)
+                .commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

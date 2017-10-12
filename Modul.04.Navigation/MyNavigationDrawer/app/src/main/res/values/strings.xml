@@ -5,4 +5,22 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="click_me_to_see_the_awesomeness">Click me to see the Awesomeness!</string>
+    <string name="narenda_wicaksono">Narenda Wicaksono</string>
+    <string name="narenda_dicoding_com">narenda@dicoding.com</string>
+    <string name="foto_kamera">Foto Kamera</string>
+    <string name="galleri">Galleri</string>
+    <string name="mainkan_slideshow">Mainkan Slideshow</string>
+    <string name="konfigurasi">Konfigurasi</string>
+    <string name="keranjang_belanja">Keranjang Belanja</string>
+    <string name="komunikasi">Komunikasi</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="kirim_pesan">Kirim Pesan</string>
+    <string name="peta">Peta</string>
+    <string name="hotel">Hotel</string>
+    <string name="subway">Subway</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
 </resources>

@@ -3,54 +3,58 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black"
+            android:title="@string/home"/>
+        <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Foto Kamera" />
+            android:title="@string/foto_kamera" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Galleri" />
+            android:title="@string/galleri" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Mainkan Slideshow" />
+            android:title="@string/mainkan_slideshow" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Konfigurasi" />
+            android:title="@string/konfigurasi" />
         <item
             android:id="@+id/nav_cart"
             android:icon="@drawable/ic_shopping_cart"
-            android:title="Keranjang Belanja" />
+            android:title="@string/keranjang_belanja" />
     </group>
 
-    <item android:title="Komunikasi">
+    <item android:title="@string/komunikasi">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Bagikan" />
+                android:title="@string/bagikan" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Kirim Pesan" />
+                android:title="@string/kirim_pesan" />
         </menu>
     </item>
 
-    <item android:title="Peta">
+    <item android:title="@string/peta">
         <menu>
             <item
                 android:id="@+id/nav_map"
                 android:icon="@drawable/ic_map_black"
-                android:title="Peta" />
+                android:title="@string/peta" />
             <item
                 android:id="@+id/nav_hotel"
                 android:icon="@drawable/ic_local_hotel"
-                android:title="Hotel" />
+                android:title="@string/hotel" />
             <item
                 android:id="@+id/nav_subway"
                 android:icon="@drawable/ic_subway_black"
-                android:title="Subway" />
+                android:title="@string/subway" />
         </menu>
     </item>
 </menu>
