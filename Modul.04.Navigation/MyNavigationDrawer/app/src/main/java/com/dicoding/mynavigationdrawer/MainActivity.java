@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity
     CircleImageView profileCircleImageView;
     String profileImageUrl = "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAb8AAAAJGVlMmE5ZmNiLTZlMDQtNDcyMi04OWUzLTcwYWIxZTMzYjhmZA.jpg";
 
-    Fragment currentFragment;
 
     DrawerLayout drawer;
     Toolbar toolbar;
@@ -68,11 +67,14 @@ public class MainActivity extends AppCompatActivity
 
 
         /*
-        Jika fragment masih null, maka redirect ke fragment home
+        Jika savedinstance masih null, maka redirect ke fragment home
         Berguna ketika aplikasi pertama dijalankan untuk mengisi halaman default
+        dan berguna juga ketika config changes terjadi, karena fragment akan
+        secara otomatis ditambahkan ke dalam activity,
+        maka kita tidak perlu replace fragment kembali.
          */
-        if (currentFragment == null){
-            currentFragment = new HomeFragment();
+        if (savedInstanceState == null){
+            Fragment currentFragment = new HomeFragment();
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.content_main,currentFragment)
@@ -109,19 +111,14 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -137,21 +134,22 @@ public class MainActivity extends AppCompatActivity
 
         Bundle bundle = new Bundle();
 
+        Fragment fragment = null;
         if (id == R.id.nav_home){
 
-            currentFragment = new HomeFragment();
+            fragment = new HomeFragment();
 
         } else if (id == R.id.nav_camera) {
 
-            currentFragment = new HalamanFragment();
+            fragment = new HalamanFragment();
             bundle.putString(HalamanFragment.EXTRAS,"Camera");
-            currentFragment.setArguments(bundle);
+            fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_gallery) {
 
-            currentFragment = new HalamanFragment();
+            fragment = new HalamanFragment();
             bundle.putString(HalamanFragment.EXTRAS,"Gallery");
-            currentFragment.setArguments(bundle);
+            fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -166,10 +164,13 @@ public class MainActivity extends AppCompatActivity
         /*
         Ganti halaman dengan memanggil fragment replace
          */
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.content_main, currentFragment)
-                .commit();
+
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_main, fragment)
+                    .commit();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
