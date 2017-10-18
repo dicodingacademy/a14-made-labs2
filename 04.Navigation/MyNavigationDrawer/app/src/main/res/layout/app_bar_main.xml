@@ -27,10 +27,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="com.dicoding.mynavigationdrawer.MainActivity"
-        tools:showIn="@layout/app_bar_main"
-        >
-
-    </FrameLayout>
+        tools:showIn="@layout/app_bar_main"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

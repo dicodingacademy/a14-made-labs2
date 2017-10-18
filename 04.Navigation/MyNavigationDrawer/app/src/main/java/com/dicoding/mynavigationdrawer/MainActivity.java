@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.content_main,currentFragment)
                     .commit();
         }
+
+        // Todo 2. Tambahkan code untuk set kembali halaman dari title
+
     }
 
     @Override
@@ -135,18 +138,23 @@ public class MainActivity extends AppCompatActivity
         Bundle bundle = new Bundle();
 
         Fragment fragment = null;
+
+        String title = "";
         if (id == R.id.nav_home){
 
+            title = "Home";
             fragment = new HomeFragment();
 
         } else if (id == R.id.nav_camera) {
 
+            title = "Camera";
             fragment = new HalamanFragment();
             bundle.putString(HalamanFragment.EXTRAS,"Camera");
             fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_gallery) {
 
+            title = "Gallery";
             fragment = new HalamanFragment();
             bundle.putString(HalamanFragment.EXTRAS,"Gallery");
             fragment.setArguments(bundle);
@@ -172,8 +180,17 @@ public class MainActivity extends AppCompatActivity
                     .commit();
         }
 
+        getSupportActionBar().setTitle(title);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // Todo 1. tambahkan code untuk menyimpan title halaman yang sedang diakses
+
     }
 }
