@@ -122,7 +122,6 @@
         </RelativeLayout>
         <Button
             android:text="@string/beli"
-            style="@style/ButtonGeneral"
-            />
+            style="@style/ButtonGeneral" />
     </LinearLayout>
 </ScrollView>
