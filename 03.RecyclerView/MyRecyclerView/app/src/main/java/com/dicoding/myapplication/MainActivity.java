@@ -14,7 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView rvCategory;
+    RecyclerView rvCategory;
     private ArrayList<President> list;
 
     @Override
@@ -47,13 +47,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void showRecyclerCardView(){
-        rvCategory.setLayoutManager(new LinearLayoutManager(this));
-        CardViewPresidentAdapter cardViewPresidentAdapter = new CardViewPresidentAdapter(this);
-        cardViewPresidentAdapter.setListPresident(list);
-        rvCategory.setAdapter(cardViewPresidentAdapter);
-    }
-
     private void showRecyclerGrid(){
         rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
         GridPresidentAdapter gridPresidentAdapter = new GridPresidentAdapter(this);
@@ -66,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
                 showSelectedPresident(list.get(position));
             }
         });
+    }
+
+    private void showRecyclerCardView(){
+        rvCategory.setLayoutManager(new LinearLayoutManager(this));
+        CardViewPresidentAdapter cardViewPresidentAdapter = new CardViewPresidentAdapter(this);
+        cardViewPresidentAdapter.setListPresident(list);
+        rvCategory.setAdapter(cardViewPresidentAdapter);
     }
 
     private void setActionBarTitle(String title){
@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_grid:
-                showRecyclerGrid();
                 title = "Mode Grid";
+                showRecyclerGrid();
                 break;
 
             case R.id.action_cardview:
