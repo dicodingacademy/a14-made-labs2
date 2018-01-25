@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity
             Fragment currentFragment = new HomeFragment();
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.content_main,currentFragment)
+                    .add(R.id.content_main,currentFragment)
                     .commit();
         }
 
@@ -140,6 +140,8 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         String title = "";
+
+
         if (id == R.id.nav_home){
 
             title = "Home";
@@ -190,6 +192,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+
         // Todo 1. tambahkan code untuk menyimpan title halaman yang sedang diakses
 
     }
