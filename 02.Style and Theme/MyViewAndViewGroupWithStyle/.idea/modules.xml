@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyViewAndViewGroupWithStyle.iml" filepath="$PROJECT_DIR$/MyViewAndViewGroupWithStyle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MyViewAndViews.iml" filepath="$PROJECT_DIR$/MyViewAndViews.iml" />
+      <module fileurl="file://D:\Made Github\2.Modul-UiUx\02.Style and Theme\MyViewAndViewGroupWithStyle\MyViewAndViews.iml" filepath="D:\Made Github\2.Modul-UiUx\02.Style and Theme\MyViewAndViewGroupWithStyle\MyViewAndViews.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
