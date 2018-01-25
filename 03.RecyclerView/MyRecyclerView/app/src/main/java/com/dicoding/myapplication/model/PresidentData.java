@@ -1,4 +1,4 @@
-package com.dicoding.myapplication;
+package com.dicoding.myapplication.model;
 
 import java.util.ArrayList;
 

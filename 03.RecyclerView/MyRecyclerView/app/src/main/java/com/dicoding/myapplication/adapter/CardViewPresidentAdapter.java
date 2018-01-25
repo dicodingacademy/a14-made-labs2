@@ -1,4 +1,4 @@
-package com.dicoding.myapplication;
+package com.dicoding.myapplication.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.dicoding.myapplication.R;
+import com.dicoding.myapplication.listener.CustomOnItemClickListener;
+import com.dicoding.myapplication.model.President;
 
 import java.util.ArrayList;
 
@@ -18,11 +21,11 @@ import java.util.ArrayList;
  * Created by sidiqpermana on 10/29/16.
  */
 
-public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresidentAdapter.CardViewViewHolder>{
+public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresidentAdapter.CardViewViewHolder> {
     private ArrayList<President> listPresident;
     private Context context;
 
-    CardViewPresidentAdapter(Context context) {
+    public CardViewPresidentAdapter(Context context) {
         this.context = context;
     }
 
@@ -30,7 +33,7 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
         return listPresident;
     }
 
-    void setListPresident(ArrayList<President> listPresident) {
+    public void setListPresident(ArrayList<President> listPresident) {
         this.listPresident = listPresident;
     }
 
@@ -56,14 +59,14 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
         holder.btnFavorite.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Favorite "+getListPresident().get(position).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Favorite " + getListPresident().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         }));
 
         holder.btnShare.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Share "+getListPresident().get(position).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Share " + getListPresident().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         }));
     }
@@ -73,17 +76,18 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
         return getListPresident().size();
     }
 
-    class CardViewViewHolder extends RecyclerView.ViewHolder{
+    class CardViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
         TextView tvName, tvRemarks;
         Button btnFavorite, btnShare;
+
         CardViewViewHolder(View itemView) {
             super(itemView);
-            imgPhoto = (ImageView)itemView.findViewById(R.id.img_item_photo);
-            tvName = (TextView)itemView.findViewById(R.id.tv_item_name);
-            tvRemarks = (TextView)itemView.findViewById(R.id.tv_item_remarks);
-            btnFavorite = (Button)itemView.findViewById(R.id.btn_set_favorite);
-            btnShare = (Button)itemView.findViewById(R.id.btn_set_share);
+            imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
+            tvName = (TextView) itemView.findViewById(R.id.tv_item_name);
+            tvRemarks = (TextView) itemView.findViewById(R.id.tv_item_remarks);
+            btnFavorite = (Button) itemView.findViewById(R.id.btn_set_favorite);
+            btnShare = (Button) itemView.findViewById(R.id.btn_set_share);
         }
     }
 }

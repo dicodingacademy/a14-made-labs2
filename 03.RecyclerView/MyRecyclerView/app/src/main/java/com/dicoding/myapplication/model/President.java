@@ -1,4 +1,4 @@
-package com.dicoding.myapplication;
+package com.dicoding.myapplication.model;
 
 /**
  * Created by sidiqpermana on 10/29/16.

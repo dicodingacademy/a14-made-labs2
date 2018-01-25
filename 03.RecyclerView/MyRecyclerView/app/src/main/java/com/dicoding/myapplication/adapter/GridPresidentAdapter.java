@@ -1,4 +1,4 @@
-package com.dicoding.myapplication;
+package com.dicoding.myapplication.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.dicoding.myapplication.R;
+import com.dicoding.myapplication.model.President;
 
 import java.util.ArrayList;
 
@@ -23,18 +25,19 @@ public class GridPresidentAdapter extends RecyclerView.Adapter<GridPresidentAdap
         return listPresident;
     }
 
-    void setListPresident(ArrayList<President> listPresident) {
+    public void setListPresident(ArrayList<President> listPresident) {
         this.listPresident = listPresident;
     }
 
-    GridPresidentAdapter(Context context) {
+    public GridPresidentAdapter(Context context) {
         this.context = context;
     }
 
     @Override
     public GridViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_president, parent, false);
-        return new GridViewHolder(view);}
+        return new GridViewHolder(view);
+    }
 
     @Override
     public void onBindViewHolder(GridViewHolder holder, int position) {
@@ -49,11 +52,12 @@ public class GridPresidentAdapter extends RecyclerView.Adapter<GridPresidentAdap
         return getListPresident().size();
     }
 
-    class GridViewHolder extends RecyclerView.ViewHolder{
+    class GridViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
+
         GridViewHolder(View itemView) {
             super(itemView);
-            imgPhoto = (ImageView)itemView.findViewById(R.id.img_item_photo);
+            imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
         }
     }
 }

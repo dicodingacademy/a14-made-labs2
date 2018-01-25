@@ -1,4 +1,4 @@
-package com.dicoding.myapplication;
+package com.dicoding.myapplication.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.dicoding.myapplication.R;
+import com.dicoding.myapplication.model.President;
 
 import java.util.ArrayList;
 
@@ -23,14 +25,14 @@ public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdap
         return listPresident;
     }
 
-    void setListPresident(ArrayList<President> listPresident) {
+    public void setListPresident(ArrayList<President> listPresident) {
         this.listPresident = listPresident;
     }
 
     private ArrayList<President> listPresident;
 
 
-    ListPresidentAdapter(Context context) {
+    public ListPresidentAdapter(Context context) {
         this.context = context;
     }
 
