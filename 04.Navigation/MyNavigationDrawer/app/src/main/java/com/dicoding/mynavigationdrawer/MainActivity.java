@@ -2,11 +2,9 @@ package com.dicoding.mynavigationdrawer;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -73,15 +72,13 @@ public class MainActivity extends AppCompatActivity
         secara otomatis ditambahkan ke dalam activity,
         maka kita tidak perlu replace fragment kembali.
          */
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
             Fragment currentFragment = new HomeFragment();
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.content_main,currentFragment)
+                    .add(R.id.content_main, currentFragment)
                     .commit();
         }
-
-        // Todo 2. Tambahkan code untuk set kembali halaman dari title
 
     }
 
@@ -142,23 +139,28 @@ public class MainActivity extends AppCompatActivity
         String title = "";
 
 
-        if (id == R.id.nav_home){
+        if (id == R.id.nav_home) {
 
             title = "Home";
             fragment = new HomeFragment();
 
         } else if (id == R.id.nav_camera) {
 
+            /*
+            Gunakanlah setarguments untuk mengirimkan data ke fragmet
+             */
             title = "Camera";
             fragment = new HalamanFragment();
-            bundle.putString(HalamanFragment.EXTRAS,"Camera");
+            bundle.putString(HalamanFragment.EXTRAS, title);
             fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_gallery) {
-
+            /*
+            Gunakanlah setarguments untuk mengirimkan data ke fragmet
+             */
             title = "Gallery";
             fragment = new HalamanFragment();
-            bundle.putString(HalamanFragment.EXTRAS,"Gallery");
+            bundle.putString(HalamanFragment.EXTRAS, title);
             fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_slideshow) {
@@ -182,18 +184,9 @@ public class MainActivity extends AppCompatActivity
                     .commit();
         }
 
-        getSupportActionBar().setTitle(title);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        // Todo 1. tambahkan code untuk menyimpan title halaman yang sedang diakses
-
-    }
 }
