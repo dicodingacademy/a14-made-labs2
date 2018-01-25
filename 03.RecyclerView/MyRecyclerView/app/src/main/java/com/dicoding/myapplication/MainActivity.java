@@ -22,7 +22,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     RecyclerView rvCategory;
     private ArrayList<President> list;
-    private final String EXTRAS_TITLE = "extras_string";
+    final String STATE_TITLE = "state_string";
+    final String STATE_LIST = "state_list";
+    final String STATE_MODE = "state_mode";
+    int mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +36,40 @@ public class MainActivity extends AppCompatActivity {
         rvCategory.setHasFixedSize(true);
 
         list = new ArrayList<>();
-        list.addAll(PresidentData.getListData());
 
-        if (savedInstanceState != null) {
-            setActionBarTitle(savedInstanceState.getString(EXTRAS_TITLE));
-        } else {
+        /*
+        Gunakanlah savedinstancestate untuk menjaga data ketika terjadi config changes
+         */
+        if (savedInstanceState == null) {
+            /*
+            Pada saat pertama kali activity dijalankan,
+            Ambil data dari method getListData, kemudian tampilkan recyclerviewlist
+             */
             setActionBarTitle("Mode List");
+            list.addAll(PresidentData.getListData());
+            showRecyclerList();
+            mode = R.id.action_list;
+
+        } else {
+            /*
+            Jika terjadi config changes maka ambil data yang dikirimkan dari saveinstancestate
+             */
+            String stateTitle = savedInstanceState.getString(STATE_TITLE);
+            ArrayList<President> stateList = savedInstanceState.getParcelableArrayList(STATE_LIST);
+            int stateMode = savedInstanceState.getInt(STATE_MODE);
+
+            /*
+            Set data untuk title, list, dan mode yang dipilih
+             */
+            setActionBarTitle(stateTitle);
+            list.addAll(stateList);
+            setMode(stateMode);
         }
 
-        showRecyclerList();
+    }
+
+    private void showSelectedPresident(President president) {
+        Toast.makeText(this, "Kamu memilih " + president.getName(), Toast.LENGTH_SHORT).show();
     }
 
     private void showRecyclerList() {
@@ -79,24 +107,30 @@ public class MainActivity extends AppCompatActivity {
         rvCategory.setAdapter(cardViewPresidentAdapter);
     }
 
-    private void setActionBarTitle(String title) {
-        getSupportActionBar().setTitle(title);
-    }
-
-    private void showSelectedPresident(President president) {
-        Toast.makeText(this, "Kamu memilih " + president.getName(), Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    private void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        setMode(item.getItemId());
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    /*
+    Method ini digunakan untuk seleksi mode yang dipilih
+     */
+    public void setMode(int selectedMode) {
         String title = null;
-        switch (item.getItemId()) {
+        switch (selectedMode) {
             case R.id.action_list:
                 title = "Mode List";
                 showRecyclerList();
@@ -112,13 +146,18 @@ public class MainActivity extends AppCompatActivity {
                 showRecyclerCardView();
                 break;
         }
+        /*
+        Simpan jenis recyclerview yang sudah dipilih ke dalam variable mode
+         */
+        mode = selectedMode;
         setActionBarTitle(title);
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(EXTRAS_TITLE, getSupportActionBar().getTitle().toString());
+        outState.putString(STATE_TITLE, getSupportActionBar().getTitle().toString());
+        outState.putParcelableArrayList(STATE_LIST, list);
+        outState.putInt(STATE_MODE, mode);
     }
 }
