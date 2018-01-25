@@ -1,8 +1,8 @@
 package com.dicoding.www.mylocalization;
 
 import android.content.Intent;
-import android.provider.Settings;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tvHello = (TextView)findViewById(R.id.tv_hello);
-        tvPlural = (TextView)findViewById(R.id.tv_plural);
-        tvXliff = (TextView)findViewById(R.id.tv_xliff);
+        tvHello = (TextView) findViewById(R.id.tv_hello);
+        tvPlural = (TextView) findViewById(R.id.tv_plural);
+        tvXliff = (TextView) findViewById(R.id.tv_xliff);
 
         int pokeCount = 3;
         String hello = String.format(getResources().getString(R.string.hello_world), "Narenda Wicaksono", pokeCount, "Yoza Aprilio");
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_change_settings){
+        if (item.getItemId() == R.id.action_change_settings) {
             Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
             startActivity(mIntent);
         }

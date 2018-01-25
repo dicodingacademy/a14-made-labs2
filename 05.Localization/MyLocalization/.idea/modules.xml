@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyLocalization.iml" filepath="$PROJECT_DIR$/MyLocalization.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NewDevelopment_Android2_Localization.iml" filepath="$PROJECT_DIR$/NewDevelopment_Android2_Localization.iml" />
+      <module fileurl="file://D:\Made Github\2.Modul-UiUx\05.Localization\MyLocalization\NewDevelopment_Android2_Localization.iml" filepath="D:\Made Github\2.Modul-UiUx\05.Localization\MyLocalization\NewDevelopment_Android2_Localization.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
