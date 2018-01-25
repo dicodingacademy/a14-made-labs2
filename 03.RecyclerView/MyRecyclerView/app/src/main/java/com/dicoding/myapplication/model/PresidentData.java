@@ -17,7 +17,7 @@ public class PresidentData {
             {"Joko Widodo", "Presiden Ketujuh RI", "https://upload.wikimedia.org/wikipedia/commons/1/1c/Joko_Widodo_2014_official_portrait.jpg"}
     };
 
-    public static ArrayList<President> getListData(){
+    public static ArrayList<President> getListData() {
         President president = null;
         ArrayList<President> list = new ArrayList<>();
         for (int i = 0; i < data.length; i++) {

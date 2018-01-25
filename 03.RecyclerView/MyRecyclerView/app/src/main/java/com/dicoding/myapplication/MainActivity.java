@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     RecyclerView rvCategory;
     private ArrayList<President> list;
+    private final String EXTRAS_TITLE = "extras_string";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<>();
         list.addAll(PresidentData.getListData());
 
-        setActionBarTitle("Mode List");
+        if (savedInstanceState != null) {
+            setActionBarTitle(savedInstanceState.getString(EXTRAS_TITLE));
+        } else {
+            setActionBarTitle("Mode List");
+        }
 
         showRecyclerList();
     }
@@ -109,5 +114,11 @@ public class MainActivity extends AppCompatActivity {
         }
         setActionBarTitle(title);
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(EXTRAS_TITLE, getSupportActionBar().getTitle().toString());
     }
 }

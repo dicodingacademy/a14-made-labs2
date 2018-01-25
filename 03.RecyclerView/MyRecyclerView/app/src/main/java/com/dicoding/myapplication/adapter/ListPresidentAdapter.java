@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by sidiqpermana on 10/28/16.
  */
 
-public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdapter.CategoryViewHolder>{
+public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdapter.CategoryViewHolder> {
     private Context context;
 
     ArrayList<President> getListPresident() {
@@ -59,16 +59,16 @@ public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdap
         return getListPresident().size();
     }
 
-    class CategoryViewHolder extends RecyclerView.ViewHolder{
+    class CategoryViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
         TextView tvRemarks;
         ImageView imgPhoto;
 
         CategoryViewHolder(View itemView) {
             super(itemView);
-            tvName = (TextView)itemView.findViewById(R.id.tv_item_name);
-            tvRemarks = (TextView)itemView.findViewById(R.id.tv_item_remarks);
-            imgPhoto = (ImageView)itemView.findViewById(R.id.img_item_photo);
+            tvName = (TextView) itemView.findViewById(R.id.tv_item_name);
+            tvRemarks = (TextView) itemView.findViewById(R.id.tv_item_remarks);
+            imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
         }
     }
 }
