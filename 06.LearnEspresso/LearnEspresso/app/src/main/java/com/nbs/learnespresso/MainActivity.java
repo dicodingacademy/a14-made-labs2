@@ -1,15 +1,15 @@
 package com.nbs.learnespresso;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
-    implements View.OnClickListener{
+        implements View.OnClickListener {
 
     EditText edtText;
     Button btnChangeText, btnSwitchActivity;
@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity
 
         getSupportActionBar().setTitle("Learn Espresso");
 
-        edtText = (EditText)findViewById(R.id.edt_text);
-        btnChangeText = (Button)findViewById(R.id.btn_change_text);
-        btnSwitchActivity = (Button)findViewById(R.id.btn_swicth_activity);
-        tvPrintedText = (TextView)findViewById(R.id.tv_printed_text);
+        edtText = (EditText) findViewById(R.id.edt_text);
+        btnChangeText = (Button) findViewById(R.id.btn_change_text);
+        btnSwitchActivity = (Button) findViewById(R.id.btn_swicth_activity);
+        tvPrintedText = (TextView) findViewById(R.id.tv_printed_text);
 
         btnChangeText.setOnClickListener(this);
         btnSwitchActivity.setOnClickListener(this);
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_change_text:
                 edtText.setText("Lalala");
                 String input = edtText.getText().toString().trim();
