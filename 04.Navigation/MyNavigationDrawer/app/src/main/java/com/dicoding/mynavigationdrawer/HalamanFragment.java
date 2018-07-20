@@ -20,6 +20,7 @@ public class HalamanFragment extends Fragment {
     static final String TAG = HalamanFragment.class.getSimpleName();
 
     public static final String EXTRAS = "extras";
+
     public HalamanFragment() {
         // Required empty public constructor
     }
@@ -29,7 +30,7 @@ public class HalamanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_halaman, container, false);
+        View view = inflater.inflate(R.layout.fragment_halaman, container, false);
 
         TextView textView = (TextView) view.findViewById(R.id.tv_fragment);
 
@@ -39,7 +40,7 @@ public class HalamanFragment extends Fragment {
         String halaman = getArguments().getString(EXTRAS);
         textView.setText(halaman);
 
-        Log.e(TAG, "onCreateView: halaman fragment "+ halaman );
+        Log.e(TAG, "onCreateView: halaman fragment " + halaman);
         return view;
     }
 
@@ -48,6 +49,6 @@ public class HalamanFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         String title = getArguments().getString(EXTRAS);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(title);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
     }
 }

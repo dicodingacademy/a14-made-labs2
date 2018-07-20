@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity
     CircleImageView profileCircleImageView;
     String profileImageUrl = "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAb8AAAAJGVlMmE5ZmNiLTZlMDQtNDcyMi04OWUzLTcwYWIxZTMzYjhmZA.jpg";
 
-
     DrawerLayout drawer;
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
@@ -57,12 +56,15 @@ public class MainActivity extends AppCompatActivity
 
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         profileCircleImageView = (CircleImageView) navigationView.getHeaderView(0).findViewById(R.id.imageView);
 
         Glide.with(MainActivity.this)
                 .load(profileImageUrl)
                 .into(profileCircleImageView);
-        navigationView.setNavigationItemSelectedListener(this);
+
+
 
 
         /*
