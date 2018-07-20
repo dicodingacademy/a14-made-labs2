@@ -21,10 +21,10 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 public class MainActivityEspressoTest {
     @Rule
-    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<MainActivity>(MainActivity.class);
+    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void ensureTextChangeWork(){
+    public void ensureTextChangeWork() {
         onView(withId(R.id.edt_text))
                 .perform(typeText("HELLO"), closeSoftKeyboard());
         onView(withId(R.id.btn_change_text)).perform(click());
@@ -33,7 +33,7 @@ public class MainActivityEspressoTest {
     }
 
     @Test
-    public void ensureMoveActivityWithData(){
+    public void ensureMoveActivityWithData() {
         onView(withId(R.id.edt_text))
                 .perform(typeText("DicodingMenjadiAndroidDeveloperExpert"), closeSoftKeyboard());
         onView(withId(R.id.btn_swicth_activity)).perform(click());
