@@ -59,7 +59,7 @@
             android:text="@string/stock_hanya_5_buah"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/text_deskripsi"
-            app:layout_constraintTop_toBottomOf="@+id/text_harga" />"/>
+            app:layout_constraintTop_toBottomOf="@+id/text_harga" />
 
         <TextView
             android:id="@+id/text_deskripsi"
