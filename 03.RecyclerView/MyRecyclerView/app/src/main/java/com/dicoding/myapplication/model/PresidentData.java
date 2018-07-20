@@ -18,13 +18,13 @@ public class PresidentData {
     };
 
     public static ArrayList<President> getListData() {
-        President president = null;
+        President president;
         ArrayList<President> list = new ArrayList<>();
-        for (int i = 0; i < data.length; i++) {
+        for (String[] aData : data) {
             president = new President();
-            president.setName(data[i][0]);
-            president.setRemarks(data[i][1]);
-            president.setPhoto(data[i][2]);
+            president.setName(aData[0]);
+            president.setRemarks(aData[1]);
+            president.setPhoto(aData[2]);
 
             list.add(president);
         }

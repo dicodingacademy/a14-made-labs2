@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdapter.CategoryViewHolder> {
     private Context context;
 
-    ArrayList<President> getListPresident() {
+    private ArrayList<President> getListPresident() {
         return listPresident;
     }
 
