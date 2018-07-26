@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.dicoding.myviewandviews", appContext.getPackageName());
+        assertEquals("com.dicoding.picodiploma.myviewandviews", appContext.getPackageName());
     }
 }
