@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.dicoding.myviewandviews.MainActivity">
+    tools:context="com.dicoding.picodiploma.myviewandviews.MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_marginBottom="8dp"/>
         <TextView
             style="@style/TextContent.Subtitle"
-            android:text="@string/stock_hanya_5_buah"
+            android:text="@string/stock"
             android:layout_marginBottom="@dimen/activity_vertical_margin"/>
         <TextView
             style="@style/TextContent"
@@ -52,7 +52,7 @@
             android:textColor="@android:color/black"/>
         <TextView
             style="@style/TextContent.Subtitle"
-            android:text="@string/spesifikasi"
+            android:text="@string/specification"
             android:layout_marginBottom="8dp"/>
         <TableLayout
             android:layout_width="match_parent"
@@ -96,7 +96,7 @@
         </TableLayout>
         <TextView
             style="@style/TextContent.Subtitle"
-            android:text="@string/dijual_oleh"
+            android:text="@string/seller"
             android:layout_marginBottom="8dp"/>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -121,7 +121,7 @@
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
         <Button
-            android:text="@string/beli"
+            android:text="@string/buy"
             style="@style/ButtonGeneral" />
     </LinearLayout>
 </ScrollView>
