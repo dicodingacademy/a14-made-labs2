@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/stock_hanya_5_buah"
+            android:text="@string/stock"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/text_deskripsi"
             app:layout_constraintTop_toBottomOf="@+id/text_harga" />
@@ -86,7 +86,7 @@
 
         <include
             android:id="@+id/include_spesifikasi"
-            layout="@layout/layout_spesifikasi"
+            layout="@layout/layout_specification"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
 
         <include
             android:id="@+id/include_penjual"
-            layout="@layout/layout_penjual"
+            layout="@layout/layout_seller"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
