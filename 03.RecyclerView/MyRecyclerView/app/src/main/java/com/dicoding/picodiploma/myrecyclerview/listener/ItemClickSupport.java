@@ -1,9 +1,10 @@
-package com.dicoding.myapplication.listener;
+package com.dicoding.picodiploma.myrecyclerview.listener;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.dicoding.myapplication.R;
+import com.dicoding.picodiploma.myrecyclerview.R;
+
 
 /**
  * Created by sidiqpermana on 10/29/16.

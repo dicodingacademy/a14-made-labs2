@@ -1,4 +1,4 @@
-package com.dicoding.myapplication.model;
+package com.dicoding.picodiploma.myrecyclerview.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

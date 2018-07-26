@@ -1,4 +1,4 @@
-package com.dicoding.myapplication.adapter;
+package com.dicoding.picodiploma.myrecyclerview.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.dicoding.myapplication.R;
-import com.dicoding.myapplication.model.President;
+import com.dicoding.picodiploma.myrecyclerview.R;
+import com.dicoding.picodiploma.myrecyclerview.model.President;
 
 import java.util.ArrayList;
 

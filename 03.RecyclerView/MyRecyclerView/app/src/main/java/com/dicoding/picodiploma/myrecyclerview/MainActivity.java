@@ -1,4 +1,4 @@
-package com.dicoding.myapplication;
+package com.dicoding.picodiploma.myrecyclerview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,12 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.dicoding.myapplication.adapter.CardViewPresidentAdapter;
-import com.dicoding.myapplication.adapter.GridPresidentAdapter;
-import com.dicoding.myapplication.adapter.ListPresidentAdapter;
-import com.dicoding.myapplication.listener.ItemClickSupport;
-import com.dicoding.myapplication.model.President;
-import com.dicoding.myapplication.model.PresidentData;
+
+import com.dicoding.picodiploma.myrecyclerview.adapter.CardViewPresidentAdapter;
+import com.dicoding.picodiploma.myrecyclerview.adapter.GridPresidentAdapter;
+import com.dicoding.picodiploma.myrecyclerview.adapter.ListPresidentAdapter;
+import com.dicoding.picodiploma.myrecyclerview.listener.ItemClickSupport;
+import com.dicoding.picodiploma.myrecyclerview.model.President;
+import com.dicoding.picodiploma.myrecyclerview.model.PresidentData;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.dicoding.myapplication;
+package com.dicoding.picodiploma.myrecyclerview;
 
 import org.junit.Test;
 
