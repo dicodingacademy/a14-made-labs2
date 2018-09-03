@@ -26,13 +26,14 @@ public class MainActivity extends AppCompatActivity {
     final String STATE_LIST = "state_list";
     final String STATE_MODE = "state_mode";
     int mode;
+    String title = "Mode List";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rvCategory = (RecyclerView) findViewById(R.id.rv_category);
+        rvCategory = findViewById(R.id.rv_category);
         rvCategory.setHasFixedSize(true);
 
         list = new ArrayList<>();
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             Pada saat pertama kali activity dijalankan,
             Ambil data dari method getListData, kemudian tampilkan recyclerviewlist
              */
-            setActionBarTitle("Mode List");
+            setActionBarTitle(title);
             list.addAll(PresidentData.getListData());
             showRecyclerList();
             mode = R.id.action_list;
@@ -54,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
             /*
             Jika terjadi config changes maka ambil data yang dikirimkan dari saveinstancestate
              */
-            String stateTitle = savedInstanceState.getString(STATE_TITLE);
+            title = savedInstanceState.getString(STATE_TITLE);
             ArrayList<President> stateList = savedInstanceState.getParcelableArrayList(STATE_LIST);
             int stateMode = savedInstanceState.getInt(STATE_MODE);
 
             /*
             Set data untuk title, list, dan mode yang dipilih
              */
-            setActionBarTitle(stateTitle);
+            setActionBarTitle(title);
             list.addAll(stateList);
             setMode(stateMode);
         }
@@ -114,7 +115,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setActionBarTitle(String title) {
-        getSupportActionBar().setTitle(title);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
     }
 
     @Override
@@ -129,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
     Method ini digunakan untuk seleksi mode yang dipilih
      */
     public void setMode(int selectedMode) {
-        String title = null;
         switch (selectedMode) {
             case R.id.action_list:
                 title = "Mode List";
@@ -156,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(STATE_TITLE, getSupportActionBar().getTitle().toString());
+        outState.putString(STATE_TITLE, title);
         outState.putParcelableArrayList(STATE_LIST, list);
         outState.putInt(STATE_MODE, mode);
     }
