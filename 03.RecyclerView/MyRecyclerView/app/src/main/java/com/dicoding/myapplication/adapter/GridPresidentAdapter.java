@@ -1,6 +1,7 @@
 package com.dicoding.myapplication.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,14 +34,15 @@ public class GridPresidentAdapter extends RecyclerView.Adapter<GridPresidentAdap
         this.context = context;
     }
 
+    @NonNull
     @Override
-    public GridViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_president, parent, false);
         return new GridViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(GridViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GridViewHolder holder, int position) {
         Glide.with(context)
                 .load(getListPresident().get(position).getPhoto())
                 .override(350, 550)
