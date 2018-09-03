@@ -70,9 +70,9 @@ public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdap
 
         CategoryViewHolder(View itemView) {
             super(itemView);
-            tvName = (TextView) itemView.findViewById(R.id.tv_item_name);
-            tvRemarks = (TextView) itemView.findViewById(R.id.tv_item_remarks);
-            imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
+            tvName = itemView.findViewById(R.id.tv_item_name);
+            tvRemarks = itemView.findViewById(R.id.tv_item_remarks);
+            imgPhoto = itemView.findViewById(R.id.img_item_photo);
         }
     }
 }

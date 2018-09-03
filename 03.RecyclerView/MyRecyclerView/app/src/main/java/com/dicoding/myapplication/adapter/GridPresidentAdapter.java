@@ -60,7 +60,7 @@ public class GridPresidentAdapter extends RecyclerView.Adapter<GridPresidentAdap
 
         GridViewHolder(View itemView) {
             super(itemView);
-            imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
+            imgPhoto = itemView.findViewById(R.id.img_item_photo);
         }
     }
 }
