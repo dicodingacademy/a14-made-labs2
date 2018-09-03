@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.dicoding.myapplication.R;
 import com.dicoding.myapplication.listener.CustomOnItemClickListener;
 import com.dicoding.myapplication.model.President;
@@ -38,6 +39,7 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
         this.listPresident = listPresident;
     }
 
+    @NonNull
     @Override
     public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_president, parent, false);
@@ -51,7 +53,7 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
 
         Glide.with(context)
                 .load(p.getPhoto())
-                .override(350, 550)
+                .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
 
         holder.tvName.setText(p.getName());
