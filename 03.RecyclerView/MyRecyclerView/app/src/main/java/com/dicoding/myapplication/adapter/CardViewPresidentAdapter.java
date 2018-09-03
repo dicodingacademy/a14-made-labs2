@@ -86,11 +86,11 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
 
         CardViewViewHolder(View itemView) {
             super(itemView);
-            imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
-            tvName = (TextView) itemView.findViewById(R.id.tv_item_name);
-            tvRemarks = (TextView) itemView.findViewById(R.id.tv_item_remarks);
-            btnFavorite = (Button) itemView.findViewById(R.id.btn_set_favorite);
-            btnShare = (Button) itemView.findViewById(R.id.btn_set_share);
+            imgPhoto = itemView.findViewById(R.id.img_item_photo);
+            tvName = itemView.findViewById(R.id.tv_item_name);
+            tvRemarks = itemView.findViewById(R.id.tv_item_remarks);
+            btnFavorite = itemView.findViewById(R.id.btn_set_favorite);
+            btnShare = itemView.findViewById(R.id.btn_set_share);
         }
     }
 }
