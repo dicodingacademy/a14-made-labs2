@@ -46,10 +46,10 @@ public class President implements Parcelable {
         dest.writeString(this.photo);
     }
 
-    public President() {
+    President() {
     }
 
-    protected President(Parcel in) {
+    private President(Parcel in) {
         this.name = in.readString();
         this.remarks = in.readString();
         this.photo = in.readString();
