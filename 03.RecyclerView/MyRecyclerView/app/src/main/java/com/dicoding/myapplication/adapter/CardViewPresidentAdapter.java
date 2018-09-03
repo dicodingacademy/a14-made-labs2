@@ -1,6 +1,7 @@
 package com.dicoding.myapplication.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,13 +39,13 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
     }
 
     @Override
-    public CardViewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_president, parent, false);
         return new CardViewViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CardViewViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
 
         President p = getListPresident().get(position);
 
