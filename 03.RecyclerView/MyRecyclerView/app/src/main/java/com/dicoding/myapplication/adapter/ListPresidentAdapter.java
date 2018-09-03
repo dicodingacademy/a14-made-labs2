@@ -53,7 +53,7 @@ public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdap
 
         Glide.with(context)
                 .load(getListPresident().get(position).getPhoto())
-                .apply(new RequestOptions().override(350, 550))
+                .apply(new RequestOptions().override(55, 55))
                 .into(holder.imgPhoto);
     }
 
