@@ -20,14 +20,13 @@ import com.dicoding.myapplication.model.PresidentData;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView rvCategory;
-    private ArrayList<President> list = new ArrayList<>();
-    private String title = "Mode List";
+    RecyclerView rvCategory;
+    private ArrayList<President> list;
     final String STATE_TITLE = "state_string";
     final String STATE_LIST = "state_list";
     final String STATE_MODE = "state_mode";
     int mode;
-
+    String title = "Mode List";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         rvCategory = findViewById(R.id.rv_category);
         rvCategory.setHasFixedSize(true);
+
+        list = new ArrayList<>();
 
         /*
         Gunakanlah savedinstancestate untuk menjaga data ketika terjadi config changes
