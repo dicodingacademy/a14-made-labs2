@@ -15,13 +15,13 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HalamanFragment extends Fragment {
+public class PageFragment extends Fragment {
 
-    static final String TAG = HalamanFragment.class.getSimpleName();
+    static final String TAG = PageFragment.class.getSimpleName();
 
     public static final String EXTRAS = "extras";
 
-    public HalamanFragment() {
+    public PageFragment() {
         // Required empty public constructor
     }
 

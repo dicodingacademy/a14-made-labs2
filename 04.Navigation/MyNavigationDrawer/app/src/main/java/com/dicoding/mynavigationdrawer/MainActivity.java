@@ -152,8 +152,8 @@ public class MainActivity extends AppCompatActivity
             Gunakanlah setarguments untuk mengirimkan data ke fragmet
              */
             title = "Camera";
-            fragment = new HalamanFragment();
-            bundle.putString(HalamanFragment.EXTRAS, title);
+            fragment = new PageFragment();
+            bundle.putString(PageFragment.EXTRAS, title);
             fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_gallery) {
@@ -161,8 +161,8 @@ public class MainActivity extends AppCompatActivity
             Gunakanlah setarguments untuk mengirimkan data ke fragmet
              */
             title = "Gallery";
-            fragment = new HalamanFragment();
-            bundle.putString(HalamanFragment.EXTRAS, title);
+            fragment = new PageFragment();
+            bundle.putString(PageFragment.EXTRAS, title);
             fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_slideshow) {
