@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity
                     .add(R.id.content_main, currentFragment)
                     .commit();
         }
-
     }
 
     @Override
@@ -135,7 +134,6 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         String title = "";
-
         if (id == R.id.nav_home) {
 
             title = "Home";

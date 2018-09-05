@@ -30,12 +30,12 @@ public class PageFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_halaman, container, false);
+        View view = inflater.inflate(R.layout.fragment_page, container, false);
 
         TextView textView = view.findViewById(R.id.tv_fragment);
 
         /*
-        Ambil data dari arguments yang dikirimkan oleh activity
+        Ambil data dari arguments yang dikirimkan oleh activity dengan mengecek terlebih dahulu apakah data tidak bernilai null
          */
 
         if (getArguments() != null) {
