@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.option_menu, menu);
 
-        SearchView searchView =
-                (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
+        MenuItem menuItem = menu.findItem(R.id.search);
+
+        SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint(getResources().getString(R.string.search_hint));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             /*
