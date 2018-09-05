@@ -38,10 +38,14 @@ public class PageFragment extends Fragment {
         /*
         Ambil data dari arguments yang dikirimkan oleh activity
          */
-        String halaman = getArguments().getString(EXTRAS);
-        textView.setText(halaman);
 
-        Log.e(TAG, "onCreateView: halaman fragment " + halaman);
+        if (getArguments() != null) {
+            String page = getArguments().getString(EXTRAS);
+            textView.setText(page);
+
+            Log.e(TAG, "onCreateView: halaman fragment " + page);
+        }
+       
         return view;
     }
 
@@ -49,7 +53,10 @@ public class PageFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        String title = getArguments().getString(EXTRAS);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
+        if (getArguments() != null && getActivity() != null) {
+            String title = getArguments().getString(EXTRAS);
+
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
+        }
     }
 }
