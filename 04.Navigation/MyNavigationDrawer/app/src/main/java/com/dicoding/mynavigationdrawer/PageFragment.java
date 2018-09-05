@@ -45,7 +45,7 @@ public class PageFragment extends Fragment {
 
             Log.e(TAG, "onCreateView: halaman fragment " + page);
         }
-       
+
         return view;
     }
 
