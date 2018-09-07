@@ -20,12 +20,14 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setTitle("Learn Espresso");
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Learn Espresso");
+        }
 
-        edtText = (EditText) findViewById(R.id.edt_text);
-        btnChangeText = (Button) findViewById(R.id.btn_change_text);
-        btnSwitchActivity = (Button) findViewById(R.id.btn_swicth_activity);
-        tvPrintedText = (TextView) findViewById(R.id.tv_printed_text);
+        edtText = findViewById(R.id.edt_text);
+        btnChangeText = findViewById(R.id.btn_change_text);
+        btnSwitchActivity = findViewById(R.id.btn_swicth_activity);
+        tvPrintedText = findViewById(R.id.tv_printed_text);
 
         btnChangeText.setOnClickListener(this);
         btnSwitchActivity.setOnClickListener(this);
