@@ -41,12 +41,12 @@
         </menu>
     </item>
 
-    <item android:title="@string/peta">
+    <item android:title="@string/map">
         <menu>
             <item
                 android:id="@+id/nav_map"
                 android:icon="@drawable/ic_map_black"
-                android:title="@string/peta" />
+                android:title="@string/map" />
             <item
                 android:id="@+id/nav_hotel"
                 android:icon="@drawable/ic_local_hotel"
