@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tvHello = (TextView) findViewById(R.id.tv_hello);
-        tvPlural = (TextView) findViewById(R.id.tv_plural);
-        tvXliff = (TextView) findViewById(R.id.tv_xliff);
+        tvHello = findViewById(R.id.tv_hello);
+        tvPlural = findViewById(R.id.tv_plural);
+        tvXliff = findViewById(R.id.tv_xliff);
 
         int pokeCount = 3;
         String hello = String.format(getResources().getString(R.string.hello_world), "Narenda Wicaksono", pokeCount, "Yoza Aprilio");
