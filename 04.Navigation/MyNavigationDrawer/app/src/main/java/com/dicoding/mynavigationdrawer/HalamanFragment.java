@@ -1,11 +1,13 @@
 package com.dicoding.mynavigationdrawer;
 
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +19,9 @@ import android.widget.TextView;
  */
 public class HalamanFragment extends Fragment {
 
-    static final String TAG = HalamanFragment.class.getSimpleName();
-
     public static final String EXTRAS = "extras";
+
+    TextView textView;
 
     public HalamanFragment() {
         // Required empty public constructor
@@ -27,20 +29,13 @@ public class HalamanFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_page, container, false);
 
-        TextView textView = (TextView) view.findViewById(R.id.tv_fragment);
+        textView = view.findViewById(R.id.tv_fragment);
 
-        /*
-        Ambil data dari arguments yang dikirimkan oleh activity
-         */
-        String halaman = getArguments().getString(EXTRAS);
-        textView.setText(halaman);
-
-        Log.e(TAG, "onCreateView: halaman fragment " + halaman);
         return view;
     }
 
@@ -48,7 +43,24 @@ public class HalamanFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        String title = getArguments().getString(EXTRAS);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
+        /*
+        Ambil data dari arguments yang dikirimkan oleh activity
+         */
+        if (getArguments() != null) {
+            String title = getArguments().getString(EXTRAS);
+
+            // Update string textview
+            textView.setText(title);
+
+            Activity activity = getActivity();
+            if (activity != null) {
+                ActionBar actionBar = ((AppCompatActivity) activity).getSupportActionBar();
+                if (actionBar != null) {
+
+                    // Update title actionbar-nya
+                    actionBar.setTitle(title);
+                }
+            }
+        }
     }
 }
