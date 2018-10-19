@@ -1,10 +1,11 @@
 package com.dicoding.picodiploma.myactionbar;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,27 +26,31 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.option_menu, menu);
 
-        SearchView searchView =
-                (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
-        searchView.setQueryHint(getResources().getString(R.string.search_hint));
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            /*
-            Gunakan method ini ketika search selesai atau OK
-             */
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(MainActivity.this, query, Toast.LENGTH_SHORT).show();
-                return true;
-            }
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
-            /*
-            Gunakan method ini untuk merespon tiap perubahan huruf pada searchView
-             */
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+        if (searchManager != null) {
+            SearchView searchView = (SearchView) (menu.findItem(R.id.search)).getActionView();
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setQueryHint(getResources().getString(R.string.search_hint));
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                /*
+                Gunakan method ini ketika search selesai atau OK
+                 */
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    Toast.makeText(MainActivity.this, query, Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                /*
+                Gunakan method ini untuk merespon tiap perubahan huruf pada searchView
+                 */
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    return false;
+                }
+            });
+        }
         return true;
     }
 
