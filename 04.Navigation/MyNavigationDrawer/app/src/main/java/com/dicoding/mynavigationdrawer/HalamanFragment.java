@@ -30,7 +30,7 @@ public class HalamanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_halaman, container, false);
+        View view = inflater.inflate(R.layout.fragment_page, container, false);
 
         TextView textView = (TextView) view.findViewById(R.id.tv_fragment);
 
