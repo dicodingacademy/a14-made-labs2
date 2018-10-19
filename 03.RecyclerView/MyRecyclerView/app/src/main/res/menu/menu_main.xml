@@ -4,13 +4,13 @@
     <item
         android:id="@+id/action_list"
         android:title="@string/list"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_grid"
         android:title="@string/grid"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_cardview"
         android:title="@string/with_cardview"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 </menu>

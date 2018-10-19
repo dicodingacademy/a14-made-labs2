@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginBottom="4dp"
     android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
     android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
     card_view:cardCornerRadius="4dp">
 
     <RelativeLayout
@@ -29,10 +29,10 @@
             android:id="@+id/tv_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
             android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="8dp"
             android:layout_toEndOf="@id/img_item_photo"
             android:layout_toRightOf="@id/img_item_photo"
             android:textSize="16sp"
@@ -44,9 +44,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_item_name"
-            android:layout_marginBottom="8dp"
             android:layout_marginLeft="@dimen/activity_vertical_margin"
             android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="8dp"
             android:layout_toEndOf="@id/img_item_photo"
             android:layout_toRightOf="@id/img_item_photo"
             tools:text="Remarks" />
@@ -55,8 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_toEndOf="@id/img_item_photo"
             android:layout_toRightOf="@id/img_item_photo"
             android:orientation="horizontal">
