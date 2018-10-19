@@ -8,15 +8,15 @@
     <string name="click_me_to_see_the_awesomeness">Click me to see the Awesomeness!</string>
     <string name="narenda_wicaksono">Narenda Wicaksono</string>
     <string name="narenda_dicoding_com">narenda@dicoding.com</string>
-    <string name="foto_kamera">Foto Kamera</string>
-    <string name="galleri">Galleri</string>
-    <string name="mainkan_slideshow">Mainkan Slideshow</string>
-    <string name="konfigurasi">Konfigurasi</string>
-    <string name="keranjang_belanja">Keranjang Belanja</string>
-    <string name="komunikasi">Komunikasi</string>
-    <string name="bagikan">Bagikan</string>
-    <string name="kirim_pesan">Kirim Pesan</string>
-    <string name="peta">Peta</string>
+    <string name="camera_photo">Foto Kamera</string>
+    <string name="gallery">Galleri</string>
+    <string name="play_slideshow">Mainkan Slideshow</string>
+    <string name="configuration">Konfigurasi</string>
+    <string name="cart">Keranjang Belanja</string>
+    <string name="communication">Komunikasi</string>
+    <string name="share">Bagikan</string>
+    <string name="send_message">Kirim Pesan</string>
+    <string name="map">Peta</string>
     <string name="hotel">Hotel</string>
     <string name="subway">Subway</string>
 
