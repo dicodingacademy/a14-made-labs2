@@ -1,4 +1,4 @@
-package com.dicoding.www.myactionbar;
+package com.dicoding.picodiploma.myactionbar;
 
 import android.content.Intent;
 import android.os.Bundle;

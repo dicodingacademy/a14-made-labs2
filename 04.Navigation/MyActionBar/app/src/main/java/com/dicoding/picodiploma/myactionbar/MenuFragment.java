@@ -1,4 +1,4 @@
-package com.dicoding.www.myactionbar;
+package com.dicoding.picodiploma.myactionbar;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

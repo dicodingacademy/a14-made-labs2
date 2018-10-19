@@ -1,4 +1,4 @@
-package com.dicoding.www.myactionbar;
+package com.dicoding.picodiploma.myactionbar;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

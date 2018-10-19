@@ -8,7 +8,7 @@
         app:actionViewClass="android.widget.SearchView" />
     <group android:menuCategory="container">
         <item android:id="@+id/menu1"
-            android:title="@string/menu1"
+            android:title="@string/menu_1"
             android:icon = "@drawable/ic_announcement_white_24px"
             app:showAsAction="always" />
         <item android:id="@+id/menu2"
