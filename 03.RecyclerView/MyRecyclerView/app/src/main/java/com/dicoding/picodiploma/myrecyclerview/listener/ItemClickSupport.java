@@ -77,6 +77,7 @@ public class ItemClickSupport {
         return this;
     }
 
+
     public ItemClickSupport setOnItemLongClickListener(OnItemLongClickListener listener) {
         mOnItemLongClickListener = listener;
         return this;
