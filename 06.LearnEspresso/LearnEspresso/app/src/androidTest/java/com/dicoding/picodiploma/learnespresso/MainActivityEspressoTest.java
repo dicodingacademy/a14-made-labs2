@@ -1,4 +1,4 @@
-package com.nbs.learnespresso;
+package com.dicoding.picodiploma.learnespresso;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;

@@ -1,4 +1,4 @@
-package com.nbs.learnespresso;
+package com.dicoding.picodiploma.learnespresso;
 
 import android.content.Intent;
 import android.os.Bundle;

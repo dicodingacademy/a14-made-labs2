@@ -1,4 +1,4 @@
-package com.nbs.learnespresso;
+package com.dicoding.picodiploma.learnespresso;
 
 import org.junit.Test;
 
