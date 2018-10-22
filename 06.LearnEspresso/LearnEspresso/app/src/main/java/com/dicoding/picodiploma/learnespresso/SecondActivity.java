@@ -14,10 +14,12 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        getSupportActionBar().setTitle("Activity Second");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Activity Second");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
-        tvResultView = (TextView) findViewById(R.id.tv_result_view);
+        tvResultView = findViewById(R.id.tv_result_view);
         String input = getIntent().getStringExtra(EXTRA_INPUT);
         tvResultView.setText(input);
     }
