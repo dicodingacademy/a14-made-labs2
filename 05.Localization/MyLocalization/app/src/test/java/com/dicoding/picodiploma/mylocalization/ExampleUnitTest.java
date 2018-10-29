@@ -1,4 +1,4 @@
-package com.dicoding.www.mylocalization;
+package com.dicoding.picodiploma.mylocalization;
 
 import org.junit.Test;
 

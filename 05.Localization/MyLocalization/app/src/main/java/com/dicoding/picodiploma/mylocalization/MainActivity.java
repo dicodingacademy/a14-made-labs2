@@ -1,4 +1,4 @@
-package com.dicoding.www.mylocalization;
+package com.dicoding.picodiploma.mylocalization;
 
 import android.content.Intent;
 import android.os.Bundle;
