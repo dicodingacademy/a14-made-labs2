@@ -22,7 +22,7 @@
             <TextView
                 style="@style/TextContent.Small.White"
                 android:padding="8dp"
-                android:text="@string/_6_photos"
+                android:text="@string/dummy_photos"
                 android:gravity="center_vertical"
                 android:drawableLeft="@drawable/ic_collections_white_18dp"
                 android:drawableStart="@drawable/ic_collections_white_18dp"
@@ -37,7 +37,7 @@
         <TextView
             style="@style/TextContent.Black"
             android:textSize="32sp"
-            android:text="@string/_735"
+            android:text="@string/dummy_value"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="8dp"/>
         <TextView
@@ -117,7 +117,7 @@
                 style="@style/TextContent"
                 android:layout_toRightOf="@id/profile_image"
                 android:layout_toEndOf="@id/profile_image"
-                android:text="@string/narenda_wicaksono"
+                android:text="@string/my_name"
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
         <Button

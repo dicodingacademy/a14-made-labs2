@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.dicoding.picodiploma.myrecyclerview.R;
 import com.dicoding.picodiploma.myrecyclerview.model.President;
 
@@ -51,8 +52,7 @@ public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdap
 
         Glide.with(context)
                 .load(getListPresident().get(position).getPhoto())
-                .override(55, 55)
-                .crossFade()
+                .apply(new RequestOptions().override(55, 55))
                 .into(holder.imgPhoto);
     }
 

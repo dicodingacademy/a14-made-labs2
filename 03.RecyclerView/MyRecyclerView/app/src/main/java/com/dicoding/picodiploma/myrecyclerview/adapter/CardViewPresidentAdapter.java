@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.dicoding.picodiploma.myrecyclerview.R;
 import com.dicoding.picodiploma.myrecyclerview.listener.CustomOnItemClickListener;
 import com.dicoding.picodiploma.myrecyclerview.model.President;
@@ -52,7 +53,7 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
 
         Glide.with(context)
                 .load(p.getPhoto())
-                .override(350, 550)
+                .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
 
         holder.tvName.setText(p.getName());
