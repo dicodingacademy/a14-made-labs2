@@ -1,4 +1,4 @@
-package com.dicoding.mynavigationdrawer;
+package com.dicoding.picodiploma.mynavigationdrawer;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity
 
         Fragment fragment = null;
 
-        String title;
+        String title = "";
 
         if (id == R.id.nav_home) {
 
@@ -153,8 +153,8 @@ public class MainActivity extends AppCompatActivity
             Gunakanlah setarguments untuk mengirimkan data ke fragmet
              */
             title = "Camera";
-            fragment = new HalamanFragment();
-            bundle.putString(HalamanFragment.EXTRAS, title);
+            fragment = new PageFragment();
+            bundle.putString(PageFragment.EXTRAS, title);
             fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_gallery) {
@@ -162,8 +162,8 @@ public class MainActivity extends AppCompatActivity
             Gunakanlah setarguments untuk mengirimkan data ke fragmet
              */
             title = "Gallery";
-            fragment = new HalamanFragment();
-            bundle.putString(HalamanFragment.EXTRAS, title);
+            fragment = new PageFragment();
+            bundle.putString(PageFragment.EXTRAS, title);
             fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_slideshow) {
@@ -187,7 +187,8 @@ public class MainActivity extends AppCompatActivity
                     .commit();
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setTitle(title);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

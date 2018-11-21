@@ -1,4 +1,4 @@
-package com.dicoding.mynavigationdrawer;
+package com.dicoding.picodiploma.mynavigationdrawer;
 
 
 import android.app.Activity;
@@ -17,13 +17,13 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HalamanFragment extends Fragment {
+public class PageFragment extends Fragment {
 
     public static final String EXTRAS = "extras";
 
     TextView textView;
 
-    public HalamanFragment() {
+    public PageFragment() {
         // Required empty public constructor
     }
 
