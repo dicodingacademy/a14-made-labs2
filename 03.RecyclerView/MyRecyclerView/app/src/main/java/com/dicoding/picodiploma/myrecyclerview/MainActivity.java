@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rvCategory = (RecyclerView) findViewById(R.id.rv_category);
+        rvCategory = findViewById(R.id.rv_category);
         rvCategory.setHasFixedSize(true);
 
         list = new ArrayList<>();

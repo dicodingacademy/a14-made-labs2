@@ -1,4 +1,4 @@
-package com.dicoding.mynavigationdrawer;
+package com.dicoding.picodiploma.mynavigationdrawer;
 
 
 import android.os.Bundle;

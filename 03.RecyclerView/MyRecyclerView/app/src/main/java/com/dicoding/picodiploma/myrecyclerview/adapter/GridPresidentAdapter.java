@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.dicoding.picodiploma.myrecyclerview.R;
 import com.dicoding.picodiploma.myrecyclerview.model.President;
 
@@ -45,7 +46,7 @@ public class GridPresidentAdapter extends RecyclerView.Adapter<GridPresidentAdap
     public void onBindViewHolder(@NonNull GridViewHolder holder, int position) {
         Glide.with(context)
                 .load(getListPresident().get(position).getPhoto())
-                .override(350, 550)
+                .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
     }
 
