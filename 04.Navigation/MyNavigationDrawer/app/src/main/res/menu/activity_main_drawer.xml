@@ -5,48 +5,48 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black"
-            android:title="@string/home"/>
+            android:title="@string/home" />
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/foto_kamera" />
+            android:title="@string/camera_photo" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/galleri" />
+            android:title="@string/gallery" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/mainkan_slideshow" />
+            android:title="@string/play_slideshow" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/konfigurasi" />
+            android:title="@string/configuration" />
         <item
             android:id="@+id/nav_cart"
             android:icon="@drawable/ic_shopping_cart"
-            android:title="@string/keranjang_belanja" />
+            android:title="@string/cart" />
     </group>
 
-    <item android:title="@string/komunikasi">
+    <item android:title="@string/communication">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="@string/bagikan" />
+                android:title="@string/share" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="@string/kirim_pesan" />
+                android:title="@string/send_message" />
         </menu>
     </item>
 
-    <item android:title="@string/peta">
+    <item android:title="@string/map">
         <menu>
             <item
                 android:id="@+id/nav_map"
                 android:icon="@drawable/ic_map_black"
-                android:title="@string/peta" />
+                android:title="@string/map" />
             <item
                 android:id="@+id/nav_hotel"
                 android:icon="@drawable/ic_local_hotel"

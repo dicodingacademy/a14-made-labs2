@@ -11,7 +11,9 @@
     </plurals>
 
 
-   <string name="app_homeurl">
+    <string name="app_homeurl">
        Visite nous à <xliff:g id="application_homepage">https://dicoding.com</xliff:g>
-   </string>
+    </string>
+
+    <string name="change_language_settings">Modifier les paramètres de langue</string>
 </resources>

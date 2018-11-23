@@ -4,10 +4,11 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dicoding.myapplication.MainActivity">
+    tools:context="com.dicoding.picodiploma.myrecyclerview.MainActivity">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_row_president"/>
+        tools:listitem="@layout/item_row_president" />
 </RelativeLayout>

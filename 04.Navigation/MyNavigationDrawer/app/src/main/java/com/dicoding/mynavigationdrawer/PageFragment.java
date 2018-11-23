@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dicoding.picodiploma.mynavigationdrawer.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
