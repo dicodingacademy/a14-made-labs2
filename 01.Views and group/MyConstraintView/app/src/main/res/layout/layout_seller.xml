@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_penjual"
+        android:id="@+id/text_seller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -25,7 +25,7 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/photo_2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_penjual" />
+        app:layout_constraintTop_toBottomOf="@+id/text_seller" />
 
     <TextView
         android:id="@+id/profile_text"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="@+id/profile_image" />
 
     <Button
-        android:id="@+id/button_beli"
+        android:id="@+id/button_buy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

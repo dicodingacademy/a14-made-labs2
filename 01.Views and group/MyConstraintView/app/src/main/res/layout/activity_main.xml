@@ -41,28 +41,28 @@
             app:layout_constraintVertical_bias="0.95" />
 
         <TextView
-            android:id="@+id/text_harga"
+            android:id="@+id/text_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/_735"
             android:textColor="@android:color/black"
             android:textSize="32sp"
-            app:layout_constraintStart_toStartOf="@+id/text_stok"
+            app:layout_constraintStart_toStartOf="@+id/text_stock"
             app:layout_constraintTop_toBottomOf="@+id/image_phone" />
 
         <TextView
-            android:id="@+id/text_stok"
+            android:id="@+id/text_stock"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/stock"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/text_deskripsi"
-            app:layout_constraintTop_toBottomOf="@+id/text_harga" />
+            app:layout_constraintStart_toStartOf="@+id/text_description"
+            app:layout_constraintTop_toBottomOf="@+id/text_price" />
 
         <TextView
-            android:id="@+id/text_deskripsi"
+            android:id="@+id/text_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -75,7 +75,7 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_stok" />
+            app:layout_constraintTop_toBottomOf="@+id/text_stock" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline"
@@ -85,7 +85,7 @@
             app:layout_constraintGuide_begin="490dp" />
 
         <include
-            android:id="@+id/include_spesifikasi"
+            android:id="@+id/include_specifications"
             layout="@layout/layout_specification"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -94,13 +94,13 @@
             app:layout_constraintTop_toBottomOf="@id/guideline" />
 
         <include
-            android:id="@+id/include_penjual"
+            android:id="@+id/include_seller"
             layout="@layout/layout_seller"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/include_spesifikasi" />
+            app:layout_constraintTop_toBottomOf="@id/include_specifications" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
