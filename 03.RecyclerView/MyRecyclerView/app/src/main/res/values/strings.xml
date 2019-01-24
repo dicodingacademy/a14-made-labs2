@@ -5,4 +5,6 @@
     <string name="list">List</string>
     <string name="grid">Grid</string>
     <string name="with_cardview">with CardView</string>
+    <string name="heroes_name">Nama Pahlawan</string>
+    <string name="from">Asal</string>
 </resources>
