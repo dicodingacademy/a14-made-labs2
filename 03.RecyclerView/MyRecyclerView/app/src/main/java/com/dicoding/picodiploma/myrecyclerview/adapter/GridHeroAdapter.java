@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.dicoding.picodiploma.myrecyclerview.R;
-import com.dicoding.picodiploma.myrecyclerview.model.President;
+import com.dicoding.picodiploma.myrecyclerview.model.Hero;
 
 import java.util.ArrayList;
 
@@ -19,40 +19,40 @@ import java.util.ArrayList;
  * Created by sidiqpermana on 10/29/16.
  */
 
-public class GridPresidentAdapter extends RecyclerView.Adapter<GridPresidentAdapter.GridViewHolder> {
+public class GridHeroAdapter extends RecyclerView.Adapter<GridHeroAdapter.GridViewHolder> {
     private Context context;
-    private ArrayList<President> listPresident;
+    private ArrayList<Hero> listHero;
 
-    private ArrayList<President> getListPresident() {
-        return listPresident;
+    private ArrayList<Hero> getListHero() {
+        return listHero;
     }
 
-    public void setListPresident(ArrayList<President> listPresident) {
-        this.listPresident = listPresident;
+    public void setListHero(ArrayList<Hero> listHero) {
+        this.listHero = listHero;
     }
 
-    public GridPresidentAdapter(Context context) {
+    public GridHeroAdapter(Context context) {
         this.context = context;
     }
 
     @NonNull
     @Override
     public GridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_president, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_heroes, parent, false);
         return new GridViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull GridViewHolder holder, int position) {
         Glide.with(context)
-                .load(getListPresident().get(position).getPhoto())
+                .load(getListHero().get(position).getPhoto())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
     }
 
     @Override
     public int getItemCount() {
-        return getListPresident().size();
+        return getListHero().size();
     }
 
     class GridViewHolder extends RecyclerView.ViewHolder {

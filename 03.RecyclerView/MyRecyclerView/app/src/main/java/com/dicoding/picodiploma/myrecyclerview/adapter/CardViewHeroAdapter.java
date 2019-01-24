@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.dicoding.picodiploma.myrecyclerview.R;
 import com.dicoding.picodiploma.myrecyclerview.listener.CustomOnItemClickListener;
-import com.dicoding.picodiploma.myrecyclerview.model.President;
+import com.dicoding.picodiploma.myrecyclerview.model.Hero;
 
 import java.util.ArrayList;
 
@@ -23,33 +23,33 @@ import java.util.ArrayList;
  * Created by sidiqpermana on 10/29/16.
  */
 
-public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresidentAdapter.CardViewViewHolder> {
-    private ArrayList<President> listPresident;
+public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapter.CardViewViewHolder> {
+    private ArrayList<Hero> listHero;
     private Context context;
 
-    public CardViewPresidentAdapter(Context context) {
+    public CardViewHeroAdapter(Context context) {
         this.context = context;
     }
 
-    private ArrayList<President> getListPresident() {
-        return listPresident;
+    private ArrayList<Hero> getListHero() {
+        return listHero;
     }
 
-    public void setListPresident(ArrayList<President> listPresident) {
-        this.listPresident = listPresident;
+    public void setListHero(ArrayList<Hero> listHero) {
+        this.listHero = listHero;
     }
 
     @NonNull
     @Override
     public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_president, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_heroes, parent, false);
         return new CardViewViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
 
-        President p = getListPresident().get(position);
+        Hero p = getListHero().get(position);
 
         Glide.with(context)
                 .load(p.getPhoto())
@@ -57,38 +57,38 @@ public class CardViewPresidentAdapter extends RecyclerView.Adapter<CardViewPresi
                 .into(holder.imgPhoto);
 
         holder.tvName.setText(p.getName());
-        holder.tvRemarks.setText(p.getRemarks());
+        holder.tvFrom.setText(p.getFrom());
 
         holder.btnFavorite.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Favorite " + getListPresident().get(position).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Favorite " + getListHero().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         }));
 
         holder.btnShare.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Share " + getListPresident().get(position).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Share " + getListHero().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         }));
     }
 
     @Override
     public int getItemCount() {
-        return getListPresident().size();
+        return getListHero().size();
     }
 
     class CardViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
-        TextView tvName, tvRemarks;
+        TextView tvName, tvFrom;
         Button btnFavorite, btnShare;
 
         CardViewViewHolder(View itemView) {
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
             tvName = itemView.findViewById(R.id.tv_item_name);
-            tvRemarks = itemView.findViewById(R.id.tv_item_remarks);
+            tvFrom = itemView.findViewById(R.id.tv_item_from);
             btnFavorite = itemView.findViewById(R.id.btn_set_favorite);
             btnShare = itemView.findViewById(R.id.btn_set_share);
         }

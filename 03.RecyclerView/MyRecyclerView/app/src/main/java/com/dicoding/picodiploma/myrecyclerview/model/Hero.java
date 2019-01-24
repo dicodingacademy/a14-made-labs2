@@ -7,8 +7,8 @@ import android.os.Parcelable;
  * Created by sidiqpermana on 10/29/16.
  */
 
-public class President implements Parcelable {
-    private String name, remarks, photo;
+public class Hero implements Parcelable {
+    private String name, from, photo;
 
     public String getName() {
         return name;
@@ -18,12 +18,12 @@ public class President implements Parcelable {
         this.name = name;
     }
 
-    public String getRemarks() {
-        return remarks;
+    public String getFrom() {
+        return from;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setFrom(String from) {
+        this.from = from;
     }
 
     public String getPhoto() {
@@ -42,28 +42,28 @@ public class President implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.name);
-        dest.writeString(this.remarks);
+        dest.writeString(this.from);
         dest.writeString(this.photo);
     }
 
-    President() {
+    Hero() {
     }
 
-    private President(Parcel in) {
+    private Hero(Parcel in) {
         this.name = in.readString();
-        this.remarks = in.readString();
+        this.from = in.readString();
         this.photo = in.readString();
     }
 
-    public static final Parcelable.Creator<President> CREATOR = new Parcelable.Creator<President>() {
+    public static final Parcelable.Creator<Hero> CREATOR = new Parcelable.Creator<Hero>() {
         @Override
-        public President createFromParcel(Parcel source) {
-            return new President(source);
+        public Hero createFromParcel(Parcel source) {
+            return new Hero(source);
         }
 
         @Override
-        public President[] newArray(int size) {
-            return new President[size];
+        public Hero[] newArray(int size) {
+            return new Hero[size];
         }
     };
 }

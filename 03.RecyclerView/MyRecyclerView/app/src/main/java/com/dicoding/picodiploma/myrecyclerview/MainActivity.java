@@ -11,18 +11,18 @@ import android.view.View;
 import android.widget.Toast;
 
 
-import com.dicoding.picodiploma.myrecyclerview.adapter.CardViewPresidentAdapter;
-import com.dicoding.picodiploma.myrecyclerview.adapter.GridPresidentAdapter;
-import com.dicoding.picodiploma.myrecyclerview.adapter.ListPresidentAdapter;
+import com.dicoding.picodiploma.myrecyclerview.adapter.CardViewHeroAdapter;
+import com.dicoding.picodiploma.myrecyclerview.adapter.GridHeroAdapter;
+import com.dicoding.picodiploma.myrecyclerview.adapter.ListHeroAdapter;
 import com.dicoding.picodiploma.myrecyclerview.listener.ItemClickSupport;
-import com.dicoding.picodiploma.myrecyclerview.model.President;
-import com.dicoding.picodiploma.myrecyclerview.model.PresidentData;
+import com.dicoding.picodiploma.myrecyclerview.model.Hero;
+import com.dicoding.picodiploma.myrecyclerview.model.HeroesData;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView rvCategory;
-    private ArrayList<President> list;
+    private ArrayList<Hero> list;
     final String STATE_TITLE = "state_string";
     final String STATE_LIST = "state_list";
     final String STATE_MODE = "state_mode";
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             Ambil data dari method getListData, kemudian tampilkan recyclerviewlist
              */
             setActionBarTitle(title);
-            list.addAll(PresidentData.getListData());
+            list.addAll(HeroesData.getListData());
             showRecyclerList();
             mode = R.id.action_list;
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             Jika terjadi config changes maka ambil data yang dikirimkan dari saveinstancestate
              */
             title = savedInstanceState.getString(STATE_TITLE);
-            ArrayList<President> stateList = savedInstanceState.getParcelableArrayList(STATE_LIST);
+            ArrayList<Hero> stateList = savedInstanceState.getParcelableArrayList(STATE_LIST);
             int stateMode = savedInstanceState.getInt(STATE_MODE);
 
             /*
@@ -70,43 +70,43 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void showSelectedPresident(President president) {
-        Toast.makeText(this, "Kamu memilih " + president.getName(), Toast.LENGTH_SHORT).show();
+    private void showSelectedHero(Hero hero) {
+        Toast.makeText(this, "Kamu memilih " + hero.getName(), Toast.LENGTH_SHORT).show();
     }
 
     private void showRecyclerList() {
         rvCategory.setLayoutManager(new LinearLayoutManager(this));
-        ListPresidentAdapter listPresidentAdapter = new ListPresidentAdapter(this);
-        listPresidentAdapter.setListPresident(list);
-        rvCategory.setAdapter(listPresidentAdapter);
+        ListHeroAdapter listHeroAdapter = new ListHeroAdapter(this);
+        listHeroAdapter.setListHero(list);
+        rvCategory.setAdapter(listHeroAdapter);
 
         ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                showSelectedPresident(list.get(position));
+                showSelectedHero(list.get(position));
             }
         });
     }
 
     private void showRecyclerGrid() {
         rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
-        GridPresidentAdapter gridPresidentAdapter = new GridPresidentAdapter(this);
-        gridPresidentAdapter.setListPresident(list);
-        rvCategory.setAdapter(gridPresidentAdapter);
+        GridHeroAdapter gridHeroAdapter = new GridHeroAdapter(this);
+        gridHeroAdapter.setListHero(list);
+        rvCategory.setAdapter(gridHeroAdapter);
 
         ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                showSelectedPresident(list.get(position));
+                showSelectedHero(list.get(position));
             }
         });
     }
 
     private void showRecyclerCardView() {
         rvCategory.setLayoutManager(new LinearLayoutManager(this));
-        CardViewPresidentAdapter cardViewPresidentAdapter = new CardViewPresidentAdapter(this);
-        cardViewPresidentAdapter.setListPresident(list);
-        rvCategory.setAdapter(cardViewPresidentAdapter);
+        CardViewHeroAdapter cardViewHeroAdapter = new CardViewHeroAdapter(this);
+        cardViewHeroAdapter.setListHero(list);
+        rvCategory.setAdapter(cardViewHeroAdapter);
     }
 
     @Override
