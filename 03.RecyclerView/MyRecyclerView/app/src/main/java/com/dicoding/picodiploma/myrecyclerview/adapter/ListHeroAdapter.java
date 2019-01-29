@@ -69,7 +69,7 @@ public class ListHeroAdapter extends RecyclerView.Adapter<ListHeroAdapter.Catego
         CategoryViewHolder(View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_item_name);
-            tvFrom = itemView.findViewById(R.id.tv_item_from);
+            tvFrom = itemView.findViewById(R.id.tv_item_description);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
         }
     }
