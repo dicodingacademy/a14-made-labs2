@@ -49,15 +49,22 @@ public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapte
     @Override
     public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
 
-        Hero p = getListHero().get(position);
+        Hero hero = getListHero().get(position);
 
         Glide.with(context)
-                .load(p.getPhoto())
+                .load(hero.getPhoto())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
 
-        holder.tvName.setText(p.getName());
-        holder.tvFrom.setText(p.getFrom());
+        holder.tvName.setText(hero.getName());
+        holder.tvFrom.setText(hero.getFrom());
+
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(context, "Ini item favorite ku" + getListHero().get(position).getName(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         holder.btnFavorite.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
