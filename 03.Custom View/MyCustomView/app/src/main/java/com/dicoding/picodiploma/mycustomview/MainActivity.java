@@ -1,7 +1,7 @@
 package com.dicoding.picodiploma.mycustomview;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
         myEditText = findViewById(R.id.my_edit_text);
 
         // Melakukan pengecekan saat pertama kali activity terbentuk
-        if (myEditText.getText()!=null){
-            setMyButtonEnable(myEditText.getText().toString());
-        }
+        setMyButtonEnable();
 
         // Menambahkan metode ketika text terjadi perubahan
         myEditText.addTextChangedListener(new TextWatcher() {
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                setMyButtonEnable(s.toString());
+                setMyButtonEnable();
             }
 
             @Override
@@ -53,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Metode untuk mengubah disable dan enable pada button
-    private void setMyButtonEnable(String string){
-        if (string.isEmpty()){
+    private void setMyButtonEnable() {
+        Editable result = myEditText.getText();
+        if (result != null && !result.toString().isEmpty()) {
             myButton.setEnabled(false);
-        }else{
+        } else {
             myButton.setEnabled(true);
         }
     }
