@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, myEditText.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, myEditText.getText(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -54,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
     private void setMyButtonEnable() {
         Editable result = myEditText.getText();
         if (result != null && !result.toString().isEmpty()) {
-            myButton.setEnabled(false);
-        } else {
             myButton.setEnabled(true);
+        } else {
+            myButton.setEnabled(false);
         }
     }
 }
