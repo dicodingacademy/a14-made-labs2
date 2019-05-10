@@ -38,9 +38,6 @@ public class MyEditText extends android.support.v7.widget.AppCompatEditText {
         // Menambahkan hint pada editText
         setHint("Masukkan nama Anda");
 
-        // Manambahkan tipe input pada editText
-        setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
-
         // Menambahkan text aligmnet pada editText
         setTextAlignment(TEXT_ALIGNMENT_VIEW_START);
     }
@@ -73,6 +70,7 @@ public class MyEditText extends android.support.v7.widget.AppCompatEditText {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             mClearButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_close_black_24dp, null);
                             showClearButton();
+                            return true;
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             mClearButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_close_black_24dp, null);
                             if (getText() != null) {
