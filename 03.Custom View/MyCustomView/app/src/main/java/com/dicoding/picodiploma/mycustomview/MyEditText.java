@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.mycustomview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -48,9 +49,9 @@ public class MyEditText extends android.support.v7.widget.AppCompatEditText {
         // Menginisialisasi gambar clear button
         mClearButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_close_black_24dp, null);
 
-
         // Menambahkan aksi kepada clear button
         setOnTouchListener(new OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if ((getCompoundDrawablesRelative()[2] != null)) {
@@ -72,14 +73,15 @@ public class MyEditText extends android.support.v7.widget.AppCompatEditText {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             mClearButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_close_black_24dp, null);
                             showClearButton();
-                        }
-                        if (event.getAction() == MotionEvent.ACTION_UP) {
+                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             mClearButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_close_black_24dp, null);
-                            if (getText()!=null){
+                            if (getText() != null) {
                                 getText().clear();
                             }
                             hideClearButton();
                             return true;
+                        } else {
+                            return false;
                         }
                     } else {
                         return false;
