@@ -66,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(STATE_TITLE, title);
+        outState.putParcelableArrayList(STATE_LIST, list);
+        outState.putInt(STATE_MODE, mode);
+    }
+
     private void showRecyclerList() {
         rvHeroes.setLayoutManager(new LinearLayoutManager(this));
         ListHeroAdapter listHeroAdapter = new ListHeroAdapter(list);
@@ -108,14 +116,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         setMode(item.getItemId());
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(STATE_TITLE, title);
-        outState.putParcelableArrayList(STATE_LIST, list);
-        outState.putInt(STATE_MODE, mode);
     }
 
     public void setMode(int selectedMode) {
