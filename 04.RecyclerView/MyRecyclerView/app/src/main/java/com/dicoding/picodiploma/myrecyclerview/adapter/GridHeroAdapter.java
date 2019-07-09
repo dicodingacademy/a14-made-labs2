@@ -20,39 +20,41 @@ import java.util.ArrayList;
  */
 
 public class GridHeroAdapter extends RecyclerView.Adapter<GridHeroAdapter.GridViewHolder> {
-    private Context context;
     private ArrayList<Hero> listHero;
+    private OnItemClickCallback onItemClickCallback;
 
-    private ArrayList<Hero> getListHero() {
-        return listHero;
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
     }
-
-    public void setListHero(ArrayList<Hero> listHero) {
-        this.listHero = listHero;
-    }
-
-    public GridHeroAdapter(Context context) {
-        this.context = context;
+    public GridHeroAdapter(ArrayList<Hero> list) {
+        this.listHero = list;
     }
 
     @NonNull
     @Override
-    public GridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_heroes, parent, false);
+    public GridHeroAdapter.GridViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_grid_hero, viewGroup, false);
         return new GridViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GridViewHolder holder, int position) {
-        Glide.with(context)
-                .load(getListHero().get(position).getPhoto())
+    public void onBindViewHolder(@NonNull final GridHeroAdapter.GridViewHolder holder, int position) {
+        Glide.with(holder.itemView.getContext())
+                .load(listHero.get(position).getPhoto())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickCallback.onItemClicked(listHero.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return getListHero().size();
+        return listHero.size();
     }
 
     class GridViewHolder extends RecyclerView.ViewHolder {
@@ -62,5 +64,9 @@ public class GridHeroAdapter extends RecyclerView.Adapter<GridHeroAdapter.GridVi
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
         }
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(Hero data);
     }
 }

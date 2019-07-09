@@ -1,6 +1,5 @@
 package com.dicoding.picodiploma.myrecyclerview.adapter;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.dicoding.picodiploma.myrecyclerview.R;
-import com.dicoding.picodiploma.myrecyclerview.listener.CustomOnItemClickListener;
 import com.dicoding.picodiploma.myrecyclerview.model.Hero;
 
 import java.util.ArrayList;
@@ -25,33 +23,23 @@ import java.util.ArrayList;
 
 public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapter.CardViewViewHolder> {
     private ArrayList<Hero> listHero;
-    private Context context;
 
-    public CardViewHeroAdapter(Context context) {
-        this.context = context;
-    }
-
-    private ArrayList<Hero> getListHero() {
-        return listHero;
-    }
-
-    public void setListHero(ArrayList<Hero> listHero) {
-        this.listHero = listHero;
+    public CardViewHeroAdapter(ArrayList<Hero> list) {
+        this.listHero = list;
     }
 
     @NonNull
     @Override
-    public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_heroes, parent, false);
+    public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_cardview_hero, viewGroup, false);
         return new CardViewViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CardViewViewHolder holder, int position) {
+        Hero hero = listHero.get(position);
 
-        Hero hero = getListHero().get(position);
-
-        Glide.with(context)
+        Glide.with(holder.itemView.getContext())
                 .load(hero.getPhoto())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
@@ -59,31 +47,34 @@ public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapte
         holder.tvName.setText(hero.getName());
         holder.tvFrom.setText(hero.getFrom());
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(context, "Ini item favorite ku" + getListHero().get(position).getName(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-        holder.btnFavorite.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+        holder.btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Favorite " + getListHero().get(position).getName(), Toast.LENGTH_SHORT).show();
-            }
-        }));
+            public void onClick(View v) {
+                Toast.makeText(holder.itemView.getContext(), "Favorite " +
+                        listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
 
-        holder.btnShare.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
-            @Override
-            public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Share " + getListHero().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
-        }));
+        });
+
+        holder.btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(holder.itemView.getContext(), "Share " +
+                        listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return getListHero().size();
+        return listHero.size();
     }
 
     class CardViewViewHolder extends RecyclerView.ViewHolder {

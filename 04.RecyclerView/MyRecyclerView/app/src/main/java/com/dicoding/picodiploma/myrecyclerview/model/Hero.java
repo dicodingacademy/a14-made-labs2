@@ -8,7 +8,9 @@ import android.os.Parcelable;
  */
 
 public class Hero implements Parcelable {
-    private String name, from, photo;
+    private String name;
+    private String from;
+    private String photo;
 
     public String getName() {
         return name;

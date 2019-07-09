@@ -7,38 +7,33 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 
 import com.dicoding.picodiploma.myrecyclerview.adapter.CardViewHeroAdapter;
 import com.dicoding.picodiploma.myrecyclerview.adapter.GridHeroAdapter;
 import com.dicoding.picodiploma.myrecyclerview.adapter.ListHeroAdapter;
-import com.dicoding.picodiploma.myrecyclerview.listener.ItemClickSupport;
 import com.dicoding.picodiploma.myrecyclerview.model.Hero;
 import com.dicoding.picodiploma.myrecyclerview.model.HeroesData;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    RecyclerView rvCategory;
-    private ArrayList<Hero> list;
-    final String STATE_TITLE = "state_string";
-    final String STATE_LIST = "state_list";
-    final String STATE_MODE = "state_mode";
-    int mode;
-    String title = "Mode List";
+    private String title = "Mode List";
+    private RecyclerView rvHeroes;
+    private ArrayList<Hero> list = new ArrayList<>();
+    private final String STATE_TITLE = "state_string";
+    private final String STATE_LIST = "state_list";
+    private final String STATE_MODE = "state_mode";
+    private int mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rvCategory = findViewById(R.id.rv_category);
-        rvCategory.setHasFixedSize(true);
-
-        list = new ArrayList<>();
-
+        rvHeroes = findViewById(R.id.rv_heroes);
+        rvHeroes.setHasFixedSize(true);
         /*
         Gunakanlah savedinstancestate untuk menjaga data ketika terjadi config changes
          */
@@ -64,49 +59,43 @@ public class MainActivity extends AppCompatActivity {
             Set data untuk title, list, dan mode yang dipilih
              */
             setActionBarTitle(title);
-            list.addAll(stateList);
+            if (stateList != null) {
+                list.addAll(stateList);
+            }
             setMode(stateMode);
         }
-
-    }
-
-    private void showSelectedHero(Hero hero) {
-        Toast.makeText(this, "Kamu memilih " + hero.getName(), Toast.LENGTH_SHORT).show();
     }
 
     private void showRecyclerList() {
-        rvCategory.setLayoutManager(new LinearLayoutManager(this));
-        ListHeroAdapter listHeroAdapter = new ListHeroAdapter(this);
-        listHeroAdapter.setListHero(list);
-        rvCategory.setAdapter(listHeroAdapter);
+        rvHeroes.setLayoutManager(new LinearLayoutManager(this));
+        ListHeroAdapter listHeroAdapter = new ListHeroAdapter(list);
+        rvHeroes.setAdapter(listHeroAdapter);
 
-        ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+        listHeroAdapter.setOnItemClickCallback(new ListHeroAdapter.OnItemClickCallback() {
             @Override
-            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                showSelectedHero(list.get(position));
+            public void onItemClicked(Hero data) {
+                showSelectedHero(data);
             }
         });
     }
 
     private void showRecyclerGrid() {
-        rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
-        GridHeroAdapter gridHeroAdapter = new GridHeroAdapter(this);
-        gridHeroAdapter.setListHero(list);
-        rvCategory.setAdapter(gridHeroAdapter);
+        rvHeroes.setLayoutManager(new GridLayoutManager(this, 2));
+        GridHeroAdapter gridHeroAdapter = new GridHeroAdapter(list);
+        rvHeroes.setAdapter(gridHeroAdapter);
 
-        ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+        gridHeroAdapter.setOnItemClickCallback(new GridHeroAdapter.OnItemClickCallback() {
             @Override
-            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                showSelectedHero(list.get(position));
+            public void onItemClicked(Hero data) {
+                showSelectedHero(data);
             }
         });
     }
 
     private void showRecyclerCardView() {
-        rvCategory.setLayoutManager(new LinearLayoutManager(this));
-        CardViewHeroAdapter cardViewHeroAdapter = new CardViewHeroAdapter(this);
-        cardViewHeroAdapter.setListHero(list);
-        rvCategory.setAdapter(cardViewHeroAdapter);
+        rvHeroes.setLayoutManager(new LinearLayoutManager(this));
+        CardViewHeroAdapter cardViewHeroAdapter = new CardViewHeroAdapter(list);
+        rvHeroes.setAdapter(cardViewHeroAdapter);
     }
 
     @Override
@@ -115,23 +104,20 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void setActionBarTitle(String title) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title);
-        }
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         setMode(item.getItemId());
-
         return super.onOptionsItemSelected(item);
     }
 
-    /*
-    Method ini digunakan untuk seleksi mode yang dipilih
-     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(STATE_TITLE, title);
+        outState.putParcelableArrayList(STATE_LIST, list);
+        outState.putInt(STATE_MODE, mode);
+    }
+
     public void setMode(int selectedMode) {
         switch (selectedMode) {
             case R.id.action_list:
@@ -149,18 +135,18 @@ public class MainActivity extends AppCompatActivity {
                 showRecyclerCardView();
                 break;
         }
-        /*
-        Simpan jenis recyclerview yang sudah dipilih ke dalam variable mode
-         */
+
         mode = selectedMode;
         setActionBarTitle(title);
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(STATE_TITLE, title);
-        outState.putParcelableArrayList(STATE_LIST, list);
-        outState.putInt(STATE_MODE, mode);
+    private void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    private void showSelectedHero(Hero hero) {
+        Toast.makeText(this, "Kamu memilih " + hero.getName(), Toast.LENGTH_SHORT).show();
     }
 }
