@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">LearnEspresso</string>
-    <string name="output_text">Hasil Cetak Teks</string>
-    <string name="edit_text">Ubah Text</string>
-    <string name="move_activity">Pindah Activity</string>
-    <string name="result_view">Result View</string>
+    <string name="app_name">MyUnitTest</string>
+    <string name="width">Lebar</string>
+    <string name="result">Hasil</string>
+    <string name="calculate_volume">Hitung Volume</string>
+    <string name="calculate_surface_area">Hitung Luas Area</string>
+    <string name="calculate_circumference">Hitung Keliling</string>
+    <string name="height">Tinggi</string>
+    <string name="length">Panjang</string>
+    <string name="save">Simpan</string>
 </resources>
