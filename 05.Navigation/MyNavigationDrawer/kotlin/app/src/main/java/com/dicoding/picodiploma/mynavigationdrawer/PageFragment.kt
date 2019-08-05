@@ -35,21 +35,19 @@ class PageFragment : Fragment() {
         /*
         Ambil data dari arguments yang dikirimkan oleh activity
          */
-        when {
-            arguments != null -> {
-                val title = arguments?.getString(EXTRAS)
+        if (arguments != null) {
+            val title = arguments?.getString(EXTRAS)
 
-                // Update string textview
-                textView.text = title
+            // Update string textview
+            textView.text = title
 
-                val activity = activity
-                when {
-                    activity != null -> {
-                        val actionBar = (activity as AppCompatActivity).supportActionBar
-                        when {
-                            actionBar != null -> // Update title actionbar-nya
-                                actionBar.title = title
-                        }
+            val activity = activity
+            when {
+                activity != null -> {
+                    val actionBar = (activity as AppCompatActivity).supportActionBar
+                    when {
+                        actionBar != null -> // Update title actionbar-nya
+                            actionBar.title = title
                     }
                 }
             }
