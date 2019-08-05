@@ -40,7 +40,6 @@ class GridHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.Adap
 
     inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
-
     }
 
     interface OnItemClickCallback {

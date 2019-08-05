@@ -1,6 +1,5 @@
 package com.dicoding.picodiploma.myrecyclerview
 
-
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -122,18 +121,15 @@ class MainActivity : AppCompatActivity() {
                 title = "Mode List"
                 showRecyclerList()
             }
-
             R.id.action_grid -> {
                 title = "Mode Grid"
                 showRecyclerGrid()
             }
-
             R.id.action_cardview -> {
                 title = "Mode CardView"
                 showRecyclerCardView()
             }
         }
-
         mode = selectedMode
         setActionBarTitle(title)
     }
@@ -145,6 +141,5 @@ class MainActivity : AppCompatActivity() {
     private fun showSelectedHero(hero: Hero) {
         Toast.makeText(this, "Kamu memilih ${hero.name}", Toast.LENGTH_SHORT).show()
     }
-
 
 }
