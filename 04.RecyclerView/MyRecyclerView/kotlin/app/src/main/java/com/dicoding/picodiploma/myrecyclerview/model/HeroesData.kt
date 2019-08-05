@@ -12,11 +12,11 @@ object HeroesData {
     val listData: ArrayList<Hero>
         get() {
             val list = ArrayList<Hero>()
-            for (aData in data) {
+            for (heroes in data) {
                 val hero = Hero()
-                hero.name = aData[0]
-                hero.from = aData[1]
-                hero.photo = aData[2]
+                hero.name = heroes[0]
+                hero.from = heroes[1]
+                hero.photo = heroes[2]
 
                 list.add(hero)
             }
