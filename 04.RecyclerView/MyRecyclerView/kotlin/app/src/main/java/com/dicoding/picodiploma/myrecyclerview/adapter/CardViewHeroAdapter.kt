@@ -51,6 +51,5 @@ class CardViewHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.
         val tvFrom: TextView = itemView.findViewById(R.id.tv_item_from)
         val btnFavorite: Button = itemView.findViewById(R.id.btn_set_favorite)
         val btnShare: Button = itemView.findViewById(R.id.btn_set_share)
-
     }
 }
