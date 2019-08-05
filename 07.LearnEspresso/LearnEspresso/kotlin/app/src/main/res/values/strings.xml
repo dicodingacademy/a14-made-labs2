@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LearnEspresso</string>
+    <string name="output_text">Hasil Cetak Teks</string>
+    <string name="edit_text">Ubah Text</string>
+    <string name="move_activity">Pindah Activity</string>
+    <string name="result_view">Result View</string>
+</resources>

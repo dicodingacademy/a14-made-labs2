@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">MyMultilanguageApp</string>
+    <string name="hello_world">Bonjour Monde %1$s, Vous avez %2$d pokes de %3$s</string>
+    <string name="good_morning">Bonjour</string>
+
+
+    <plurals name="numberOfSongsAvailable">
+        <item quantity="one">%d chanson trouvé.</item>
+        <item quantity="other">%d chansons trouvé.</item>
+    </plurals>
+
+
+    <string name="app_homeurl">
+       Visite nous à <xliff:g id="application_homepage">https://dicoding.com</xliff:g>
+    </string>
+
+    <string name="change_language_settings">Modifier les paramètres de langue</string>
+</resources>
