@@ -60,12 +60,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         secara otomatis ditambahkan ke dalam activity,
         maka kita tidak perlu replace fragment kembali.
          */
-        when (savedInstanceState) {
-            null -> {
-                val currentFragment = HomeFragment()
-                supportFragmentManager.commit {
-                    replace(R.id.content_main, currentFragment)
-                }
+        if (savedInstanceState == null) {
+            val currentFragment = HomeFragment()
+            supportFragmentManager.commit {
+                replace(R.id.content_main, currentFragment)
             }
         }
     }
@@ -161,11 +159,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         Ganti halaman dengan memanggil fragment replace
          */
 
-        when {
-            fragment != null ->
-                supportFragmentManager.commit {
-                    replace(R.id.content_main, fragment)
-                }
+        if (fragment != null) supportFragmentManager.commit {
+            replace(R.id.content_main, fragment)
         }
 
         supportActionBar?.title = title
