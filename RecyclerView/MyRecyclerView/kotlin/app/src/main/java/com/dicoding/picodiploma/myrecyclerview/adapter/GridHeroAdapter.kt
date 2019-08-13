@@ -3,12 +3,12 @@ package com.dicoding.picodiploma.myrecyclerview.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.myrecyclerview.R
 import com.dicoding.picodiploma.myrecyclerview.model.Hero
+import kotlinx.android.synthetic.main.item_grid_hero.view.*
 import java.util.*
 
 /**
@@ -28,18 +28,22 @@ class GridHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
-        Glide.with(holder.itemView.context)
-                .load(listHero[position].photo)
-                .apply(RequestOptions().override(350, 550))
-                .into(holder.imgPhoto)
-
-        holder.itemView.setOnClickListener { onItemClickCallback?.onItemClicked(listHero[holder.adapterPosition]) }
+        holder.bind(listHero[position])
     }
 
     override fun getItemCount(): Int = listHero.size
 
     inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
+        fun bind(hero: Hero) {
+            with(itemView){
+                Glide.with(itemView.context)
+                        .load(hero.photo)
+                        .apply(RequestOptions().override(350, 550))
+                        .into(img_item_photo)
+
+                itemView.setOnClickListener { onItemClickCallback?.onItemClicked(hero) }
+            }
+        }
     }
 
     interface OnItemClickCallback {
