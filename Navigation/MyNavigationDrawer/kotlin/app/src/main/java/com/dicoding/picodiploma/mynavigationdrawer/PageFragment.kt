@@ -42,14 +42,10 @@ class PageFragment : Fragment() {
             textView.text = title
 
             val activity = activity
-            when {
-                activity != null -> {
-                    val actionBar = (activity as AppCompatActivity).supportActionBar
-                    when {
-                        actionBar != null -> // Update title actionbar-nya
-                            actionBar.title = title
-                    }
-                }
+            if (activity != null) {
+                val actionBar = (activity as AppCompatActivity).supportActionBar
+                // Update title actionbar-nya
+                if (actionBar != null) actionBar.title = title
             }
         }
     }

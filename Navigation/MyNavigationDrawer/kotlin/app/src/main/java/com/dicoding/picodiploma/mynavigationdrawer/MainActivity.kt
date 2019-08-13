@@ -1,7 +1,6 @@
 package com.dicoding.picodiploma.mynavigationdrawer
 
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -10,21 +9,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.bumptech.glide.Glide
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var profileCircleImageView: CircleImageView
     private var profileImageUrl = "https://lh3.googleusercontent.com/-4qy2DfcXBoE/AAAAAAAAAAI/AAAAAAAABi4/rY-jrtntAi4/s640-il/photo.jpg"
 
-    private lateinit var drawer: DrawerLayout
     private lateinit var toolbar: Toolbar
     private lateinit var toggle: ActionBarDrawerToggle
 
@@ -36,18 +34,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         supportActionBar?.title = "Home"
 
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action") { Toast.makeText(this@MainActivity, "Halo ini action dari snackbar", Toast.LENGTH_SHORT).show() }.show()
         }
 
-        drawer = findViewById(R.id.drawer_layout)
+        nav_view.setNavigationItemSelectedListener(this)
 
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener(this)
-
-        profileCircleImageView = navigationView.getHeaderView(0).findViewById(R.id.imageView)
+        profileCircleImageView = nav_view.getHeaderView(0).findViewById(R.id.imageView)
 
         Glide.with(this@MainActivity)
                 .load(profileImageUrl)
@@ -71,24 +65,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onResume() {
         super.onResume()
         toggle = ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
 
-        drawer.addDrawerListener(toggle)
+        drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
     }
 
 
     override fun onPause() {
         super.onPause()
-        drawer.removeDrawerListener(toggle)
+        drawer_layout.removeDrawerListener(toggle)
     }
 
     override fun onBackPressed() {
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        when {
-            drawer.isDrawerOpen(GravityCompat.START) -> drawer.closeDrawer(GravityCompat.START)
-            else -> super.onBackPressed()
-        }
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) drawer_layout.closeDrawer(GravityCompat.START)
+        else super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -159,12 +150,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         Ganti halaman dengan memanggil fragment replace
          */
 
-        if (fragment != null) supportFragmentManager.commit {
-            replace(R.id.content_main, fragment)
+        if (fragment != null) {
+            supportFragmentManager.commit {
+                replace(R.id.content_main, fragment)
+            }
         }
 
         supportActionBar?.title = title
-        drawer.closeDrawer(GravityCompat.START)
+        drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
 }
