@@ -3,13 +3,13 @@ package com.dicoding.picodiploma.mylocalization;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tvHello, tvPlural, tvXliff;
+    private TextView tvHello, tvPlural, tvXliff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
