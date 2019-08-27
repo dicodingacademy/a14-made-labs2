@@ -33,7 +33,7 @@ public class MainActivityTest {
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void getCircumference() {
+    public void assertGetCircumference() {
         onView(withId(R.id.edt_length)).perform(typeText(dummyLength), closeSoftKeyboard());
         onView(withId(R.id.edt_width)).perform(typeText(dummyWidth), closeSoftKeyboard());
         onView(withId(R.id.edt_height)).perform(typeText(dummyHeight), closeSoftKeyboard());
@@ -49,7 +49,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void getSurfaceArea() {
+    public void assertGetSurfaceArea() {
         onView(withId(R.id.edt_length)).perform(typeText(dummyLength), closeSoftKeyboard());
         onView(withId(R.id.edt_width)).perform(typeText(dummyWidth), closeSoftKeyboard());
         onView(withId(R.id.edt_height)).perform(typeText(dummyHeight), closeSoftKeyboard());
@@ -65,7 +65,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void getVolume() {
+    public void assertGetVolume() {
         onView(withId(R.id.edt_length)).perform(typeText(dummyLength), closeSoftKeyboard());
         onView(withId(R.id.edt_width)).perform(typeText(dummyWidth), closeSoftKeyboard());
         onView(withId(R.id.edt_height)).perform(typeText(dummyHeight), closeSoftKeyboard());
@@ -82,7 +82,7 @@ public class MainActivityTest {
 
     //Pengecekan untuk empty input
     @Test
-    public void emptyInput() {
+    public void assertEmptyInput() {
         // pengecekan input untuk length
         onView(withId(R.id.edt_length)).perform(typeText(emptyInput), closeSoftKeyboard());
 
