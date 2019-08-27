@@ -4,17 +4,16 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
+import androidx.core.content.res.ResourcesCompat;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class MyEditText extends android.support.v7.widget.AppCompatEditText {
+public class MyEditText extends androidx.appcompat.widget.AppCompatEditText {
 
-    Drawable mClearButtonImage;
+    private Drawable mClearButtonImage;
 
     public MyEditText(Context context) {
         super(context);

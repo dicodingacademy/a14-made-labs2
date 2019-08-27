@@ -3,12 +3,12 @@ package com.dicoding.picodiploma.mycustomview;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
 
 import static android.view.Gravity.CENTER;
 
-public class MyButton extends android.support.v7.widget.AppCompatButton {
+public class MyButton extends androidx.appcompat.widget.AppCompatButton {
 
     private Drawable enabledBackground, disabledBackground;
 
