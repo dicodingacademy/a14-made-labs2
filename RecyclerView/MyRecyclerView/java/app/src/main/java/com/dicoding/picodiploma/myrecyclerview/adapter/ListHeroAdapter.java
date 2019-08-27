@@ -1,7 +1,7 @@
 package com.dicoding.picodiploma.myrecyclerview.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class ListHeroAdapter extends RecyclerView.Adapter<ListHeroAdapter.ListViewHolder> {
-    private ArrayList<Hero> listHero;
+    private final ArrayList<Hero> listHero;
     private OnItemClickCallback onItemClickCallback;
 
     public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
@@ -65,8 +65,9 @@ public class ListHeroAdapter extends RecyclerView.Adapter<ListHeroAdapter.ListVi
 
 
     class ListViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgPhoto;
-        TextView tvName, tvFrom;
+        private final ImageView imgPhoto;
+        private final TextView tvName;
+        private final TextView tvFrom;
 
         ListViewHolder(View itemView) {
             super(itemView);

@@ -1,7 +1,7 @@
 package com.dicoding.picodiploma.myrecyclerview.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 
 public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapter.CardViewViewHolder> {
-    private ArrayList<Hero> listHero;
+    private final ArrayList<Hero> listHero;
 
     public CardViewHeroAdapter(ArrayList<Hero> list) {
         this.listHero = list;
@@ -78,9 +78,11 @@ public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapte
     }
 
     class CardViewViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgPhoto;
-        TextView tvName, tvFrom;
-        Button btnFavorite, btnShare;
+        private final ImageView imgPhoto;
+        private final TextView tvName;
+        private final TextView tvFrom;
+        private final Button btnFavorite;
+        private final Button btnShare;
 
         CardViewViewHolder(View itemView) {
             super(itemView);

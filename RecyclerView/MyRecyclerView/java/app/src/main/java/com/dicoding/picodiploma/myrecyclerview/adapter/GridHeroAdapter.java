@@ -1,8 +1,7 @@
 package com.dicoding.picodiploma.myrecyclerview.adapter;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
  */
 
 public class GridHeroAdapter extends RecyclerView.Adapter<GridHeroAdapter.GridViewHolder> {
-    private ArrayList<Hero> listHero;
+    private final ArrayList<Hero> listHero;
     private OnItemClickCallback onItemClickCallback;
 
     public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
@@ -58,7 +57,7 @@ public class GridHeroAdapter extends RecyclerView.Adapter<GridHeroAdapter.GridVi
     }
 
     class GridViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgPhoto;
+        private final ImageView imgPhoto;
 
         GridViewHolder(View itemView) {
             super(itemView);
