@@ -6,20 +6,17 @@ class CuboidModel {
     private double length;
     private double height;
 
-    CuboidModel() {
-    }
-
-    void save(double width, double length, double height) {
+    public void save(double width, double length, double height) {
         this.width = width;
         this.length = length;
         this.height = height;
     }
 
-    double getVolume() {
+    public double getVolume() {
         return width * length * height;
     }
 
-    double getSurfaceArea() {
+    public double getSurfaceArea() {
         double wl = width * length;
         double wh = width * height;
         double lh = length * height;
@@ -27,7 +24,7 @@ class CuboidModel {
         return 2 * (wl + wh + lh);
     }
 
-    double getCircumference() {
+    public double getCircumference() {
         return 4 * (width * length * height);
     }
 }

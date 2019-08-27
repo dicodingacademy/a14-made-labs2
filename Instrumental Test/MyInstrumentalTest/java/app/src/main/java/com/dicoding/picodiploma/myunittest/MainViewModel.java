@@ -11,15 +11,15 @@ class MainViewModel {
         cuboidModel.save(l, w, h);
     }
 
-    double getCircumference() {
+    public double getCircumference() {
         return cuboidModel.getCircumference();
     }
 
-    double getSurfaceArea() {
+    public double getSurfaceArea() {
         return cuboidModel.getSurfaceArea();
     }
 
-    double getVolume() {
+    public double getVolume() {
         return cuboidModel.getVolume();
     }
 }
