@@ -1,10 +1,10 @@
 package com.dicoding.picodiploma.myrecyclerview;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private String title = "Mode List";
     private RecyclerView rvHeroes;
-    private ArrayList<Hero> list = new ArrayList<>();
+    private final ArrayList<Hero> list = new ArrayList<>();
     private final String STATE_TITLE = "state_string";
     private final String STATE_LIST = "state_list";
     private final String STATE_MODE = "state_mode";
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void setMode(int selectedMode) {
+    private void setMode(int selectedMode) {
         switch (selectedMode) {
             case R.id.action_list:
                 title = "Mode List";
