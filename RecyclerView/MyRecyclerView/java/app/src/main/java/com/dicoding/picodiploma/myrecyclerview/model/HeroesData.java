@@ -25,7 +25,7 @@ public class HeroesData {
         for (String[] aData : data) {
             Hero hero = new Hero();
             hero.setName(aData[0]);
-            hero.setFrom(aData[1]);
+            hero.setDescription(aData[1]);
             hero.setPhoto(aData[2]);
 
             list.add(hero);
