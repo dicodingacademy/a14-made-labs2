@@ -9,7 +9,7 @@ import android.os.Parcelable;
 
 public class Hero implements Parcelable {
     private String name;
-    private String from;
+    private String description;
     private String photo;
 
     public String getName() {
@@ -20,12 +20,12 @@ public class Hero implements Parcelable {
         this.name = name;
     }
 
-    public String getFrom() {
-        return from;
+    public String getDescription() {
+        return description;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPhoto() {
@@ -44,7 +44,7 @@ public class Hero implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.name);
-        dest.writeString(this.from);
+        dest.writeString(this.description);
         dest.writeString(this.photo);
     }
 
@@ -53,7 +53,7 @@ public class Hero implements Parcelable {
 
     private Hero(Parcel in) {
         this.name = in.readString();
-        this.from = in.readString();
+        this.description = in.readString();
         this.photo = in.readString();
     }
 

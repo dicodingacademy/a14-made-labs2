@@ -15,7 +15,7 @@ object HeroesData {
             for (heroes in data) {
                 val hero = Hero()
                 hero.name = heroes[0]
-                hero.from = heroes[1]
+                hero.description = heroes[1]
                 hero.photo = heroes[2]
 
                 list.add(hero)

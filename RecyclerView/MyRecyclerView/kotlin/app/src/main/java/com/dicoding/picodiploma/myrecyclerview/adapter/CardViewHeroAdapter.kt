@@ -38,7 +38,7 @@ class CardViewHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.
                         .into(img_item_photo)
 
                 tv_item_name.text = hero.name
-                tv_item_from.text = hero.from
+                tv_item_description.text = hero.description
 
                 btn_set_favorite.setOnClickListener { Toast.makeText(itemView.context, "Favorite $hero.name", Toast.LENGTH_SHORT).show() }
 

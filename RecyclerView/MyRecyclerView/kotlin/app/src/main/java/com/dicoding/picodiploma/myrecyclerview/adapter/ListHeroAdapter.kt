@@ -42,7 +42,7 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.Adap
                         .into(img_item_photo)
 
                 tv_item_name.text = hero.name
-                tv_item_from.text = hero.from
+                tv_item_description.text = hero.description
 
                 itemView.setOnClickListener { onItemClickCallback?.onItemClicked(hero) }
             }
