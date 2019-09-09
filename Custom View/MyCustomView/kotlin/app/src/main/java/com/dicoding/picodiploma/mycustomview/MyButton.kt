@@ -5,17 +5,18 @@ import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.Gravity.CENTER
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 
-class MyButton : androidx.appcompat.widget.AppCompatButton {
+class MyButton : AppCompatButton {
 
     private var enabledBackground: Drawable? = null
     private var disabledBackground: Drawable? = null
 
     private var txtColor: Int = 0
 
-    // Konstruktor dari MyButton
+//  Konstruktor dari MyButton
     constructor(context: Context) : super(context) {
         init()
     }

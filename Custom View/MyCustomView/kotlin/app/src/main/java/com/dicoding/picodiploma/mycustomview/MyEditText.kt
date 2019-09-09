@@ -9,9 +9,10 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.res.ResourcesCompat
 
-class MyEditText : androidx.appcompat.widget.AppCompatEditText {
+class MyEditText : AppCompatEditText {
 
     internal lateinit var mClearButtonImage: Drawable
 
