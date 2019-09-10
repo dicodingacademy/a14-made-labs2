@@ -11,7 +11,6 @@ import com.dicoding.picodiploma.myrecyclerview.adapter.CardViewHeroAdapter
 import com.dicoding.picodiploma.myrecyclerview.adapter.GridHeroAdapter
 import com.dicoding.picodiploma.myrecyclerview.adapter.ListHeroAdapter
 import com.dicoding.picodiploma.myrecyclerview.model.Hero
-import com.dicoding.picodiploma.myrecyclerview.model.HeroesData
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -38,10 +37,10 @@ class MainActivity : AppCompatActivity() {
             null -> {
                 /*
             Pada saat pertama kali activity dijalankan,
-            Ambil data dari method getListData, kemudian tampilkan recyclerviewlist
+            Ambil data dari method getListHeroes, kemudian tampilkan recyclerviewlist
              */
                 setActionBarTitle(title)
-                list.addAll(HeroesData.listData)
+                list.addAll(getListHeroes())
                 showRecyclerList()
                 mode = R.id.action_list
 
@@ -64,6 +63,23 @@ class MainActivity : AppCompatActivity() {
                 setMode(stateMode)
             }
         }
+    }
+
+    fun getListHeroes(): ArrayList<Hero> {
+        val dataName = resources.getStringArray(R.array.data_name)
+        val dataDescription = resources.getStringArray(R.array.data_description)
+        val dataPhoto = resources.getStringArray(R.array.data_photo)
+
+        val listHero = ArrayList<Hero>()
+        for (position in dataName.indices) {
+            val hero = Hero(
+                    dataName[position],
+                    dataDescription[position],
+                    dataPhoto[position]
+            )
+            listHero.add(hero)
+        }
+        return listHero
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -113,6 +129,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+
     private fun setMode(selectedMode: Int) {
         when (selectedMode) {
             R.id.action_list -> {
@@ -139,5 +156,4 @@ class MainActivity : AppCompatActivity() {
     private fun showSelectedHero(hero: Hero) {
         Toast.makeText(this, "Kamu memilih ${hero.name}", Toast.LENGTH_SHORT).show()
     }
-
 }

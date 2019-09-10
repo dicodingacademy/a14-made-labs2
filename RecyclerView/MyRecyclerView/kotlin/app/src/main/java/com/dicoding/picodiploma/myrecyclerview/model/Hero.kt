@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Hero(
-    var name: String? = null,
-    var description: String? = null,
-    var photo: String? = null
+    var name: String,
+    var description: String,
+    var photo: String
 ) : Parcelable

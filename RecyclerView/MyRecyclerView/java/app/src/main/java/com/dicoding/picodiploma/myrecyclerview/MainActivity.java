@@ -14,7 +14,6 @@ import com.dicoding.picodiploma.myrecyclerview.adapter.CardViewHeroAdapter;
 import com.dicoding.picodiploma.myrecyclerview.adapter.GridHeroAdapter;
 import com.dicoding.picodiploma.myrecyclerview.adapter.ListHeroAdapter;
 import com.dicoding.picodiploma.myrecyclerview.model.Hero;
-import com.dicoding.picodiploma.myrecyclerview.model.HeroesData;
 
 import java.util.ArrayList;
 
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             Ambil data dari method getListData, kemudian tampilkan recyclerviewlist
              */
             setActionBarTitle(title);
-            list.addAll(HeroesData.getListData());
+            list.addAll(getListHeroes());
             showRecyclerList();
             mode = R.id.action_list;
 
@@ -65,6 +64,24 @@ public class MainActivity extends AppCompatActivity {
             setMode(stateMode);
         }
     }
+
+    public ArrayList<Hero> getListHeroes() {
+        String[] dataName = getResources().getStringArray(R.array.data_name);
+        String[] dataDescription = getResources().getStringArray(R.array.data_description);
+        String[] dataPhoto = getResources().getStringArray(R.array.data_photo);
+
+        ArrayList<Hero> listHero = new ArrayList<>();
+        for (int i = 0; i < dataName.length; i++) {
+            Hero hero = new Hero();
+            hero.setName(dataName[i]);
+            hero.setDescription(dataDescription[i]);
+            hero.setPhoto(dataPhoto[i]);
+
+            listHero.add(hero);
+        }
+        return listHero;
+    }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -149,4 +166,5 @@ public class MainActivity extends AppCompatActivity {
     private void showSelectedHero(Hero hero) {
         Toast.makeText(this, "Kamu memilih " + hero.getName(), Toast.LENGTH_SHORT).show();
     }
+
 }

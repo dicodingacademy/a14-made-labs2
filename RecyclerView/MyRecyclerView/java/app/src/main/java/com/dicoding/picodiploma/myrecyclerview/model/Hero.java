@@ -48,7 +48,7 @@ public class Hero implements Parcelable {
         dest.writeString(this.photo);
     }
 
-    Hero() {
+    public Hero() {
     }
 
     private Hero(Parcel in) {
