@@ -4,16 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_page.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class PageFragment : Fragment() {
-
-    private lateinit var textView: TextView
 
     companion object {
         const val EXTRAS = "extras"
@@ -22,11 +20,7 @@ class PageFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_page, container, false)
-
-        textView = view.findViewById(R.id.tv_fragment)
-
-        return view
+        return inflater.inflate(R.layout.fragment_page, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -39,7 +33,7 @@ class PageFragment : Fragment() {
             val title = arguments?.getString(EXTRAS)
 
             // Update string textview
-            textView.text = title
+            tv_fragment.text = title
 
             val activity = activity
             if (activity != null) {
@@ -49,6 +43,4 @@ class PageFragment : Fragment() {
             }
         }
     }
-
-
 }

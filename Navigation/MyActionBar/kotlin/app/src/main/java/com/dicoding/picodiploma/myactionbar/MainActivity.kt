@@ -54,11 +54,10 @@ class MainActivity : AppCompatActivity() {
                 Ketika menu ditekan maka akan memunculkan fragment,
                 fragment di tambahkan ke dalam backstack sehingga ketika ditekan back akan kembali ke MainActivity
                  */
-                val menuFragment = MenuFragment()
-                supportFragmentManager.commit {
-                    addToBackStack(null)
-                    replace(R.id.fragment_container, menuFragment)
-                }
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, MenuFragment())
+                        .addToBackStack(null)
+                        .commit()
                 return true
             }
             R.id.menu2 -> {

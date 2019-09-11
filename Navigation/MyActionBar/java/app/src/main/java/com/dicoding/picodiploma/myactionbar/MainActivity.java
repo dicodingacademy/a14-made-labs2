@@ -4,10 +4,12 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -63,12 +65,10 @@ public class MainActivity extends AppCompatActivity {
                 Ketika menu ditekan maka akan memunculkan fragment,
                 fragment di tambahkan ke dalam backstack sehingga ketika ditekan back akan kembali ke MainActivity
                  */
-                MenuFragment menuFragment = new MenuFragment();
-                FragmentManager mFragmentManager = getSupportFragmentManager();
-                FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
-                mFragmentTransaction.replace(R.id.fragment_container, menuFragment);
-                mFragmentTransaction.addToBackStack(null);
-                mFragmentTransaction.commit();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new MenuFragment())
+                        .addToBackStack(null)
+                        .commit();
                 return true;
             case R.id.menu2:
                 Intent i = new Intent(this, MenuActivity.class);

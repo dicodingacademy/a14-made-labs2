@@ -10,7 +10,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -23,13 +22,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var profileCircleImageView: CircleImageView
     private var profileImageUrl = "https://lh3.googleusercontent.com/-4qy2DfcXBoE/AAAAAAAAAAI/AAAAAAAABi4/rY-jrtntAi4/s640-il/photo.jpg"
 
-    private lateinit var toolbar: Toolbar
     private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        toolbar = findViewById(R.id.toolbar)
+
         setSupportActionBar(toolbar)
 
         supportActionBar?.title = "Home"
@@ -56,9 +54,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
          */
         if (savedInstanceState == null) {
             val currentFragment = HomeFragment()
-            supportFragmentManager.commit {
-                replace(R.id.content_main, currentFragment)
-            }
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.content_main, currentFragment)
+                    .commit()
         }
     }
 
@@ -140,10 +138,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_send -> {
 
             }
-
-            /*
-            Ganti halaman dengan memanggil fragment replace
-             */
         }
 
         /*
@@ -151,9 +145,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
          */
 
         if (fragment != null) {
-            supportFragmentManager.commit {
-                replace(R.id.content_main, fragment)
-            }
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.content_main, fragment)
+                    .commit()
         }
 
         supportActionBar?.title = title
@@ -161,3 +155,39 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
