@@ -14,27 +14,25 @@ class MainActivity : AppCompatActivity() {
 
         when (item.itemId) {
             R.id.navigation_home -> {
-
                 fragment = HomeFragment()
-                supportFragmentManager.commit {
-                    replace(R.id.container_layout, fragment, fragment.javaClass.simpleName)
-                }
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.container_layout, fragment, fragment.javaClass.simpleName)
+                        .commit();
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
 
                 fragment = DashboardFragment()
-                supportFragmentManager.commit {
-                    replace(R.id.container_layout, fragment, fragment.javaClass.simpleName)
-                }
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.container_layout, fragment, fragment.javaClass.simpleName)
+                        .commit();
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-
                 fragment = NotificationsFragment()
-                supportFragmentManager.commit {
-                    replace(R.id.container_layout, fragment, fragment.javaClass.simpleName)
-                }
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.container_layout, fragment, fragment.javaClass.simpleName)
+                        .commit();
                 return@OnNavigationItemSelectedListener true
             }
         }
