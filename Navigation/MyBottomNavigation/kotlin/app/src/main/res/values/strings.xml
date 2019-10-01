@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyBottomNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="dashboard">Selamat datang di halaman Dashboard</string>
+    <string name="home">Selamat datang di halaman Home</string>
+    <string name="notifications">Selamat datang di halaman Notifications</string>
+</resources>

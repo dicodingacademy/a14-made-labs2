@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MyNavigationDrawer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="click_me_to_see_the_awesomeness">Click me to see the Awesomeness!</string>
+    <string name="narenda_wicaksono">Narenda Wicaksono</string>
+    <string name="narenda_dicoding_com">narenda@dicoding.com</string>
+    <string name="camera_photo">Foto Kamera</string>
+    <string name="gallery">Galleri</string>
+    <string name="play_slideshow">Mainkan Slideshow</string>
+    <string name="configuration">Konfigurasi</string>
+    <string name="cart">Keranjang Belanja</string>
+    <string name="communication">Komunikasi</string>
+    <string name="share">Bagikan</string>
+    <string name="send_message">Kirim Pesan</string>
+    <string name="map">Peta</string>
+    <string name="hotel">Hotel</string>
+    <string name="subway">Subway</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+</resources>
