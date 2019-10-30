@@ -1,46 +1,42 @@
 package com.dicoding.picodiploma.mynavigationdrawer;
 
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.fragment.app.Fragment;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
-    private CircleImageView profileCircleImageView;
-    private final String profileImageUrl = "https://lh3.googleusercontent.com/-4qy2DfcXBoE/AAAAAAAAAAI/AAAAAAAABi4/rY-jrtntAi4/s640-il/photo.jpg";
+    private AppBarConfiguration appBarConfiguration;
 
-    private DrawerLayout drawer;
-    private Toolbar toolbar;
-    private ActionBarDrawerToggle toggle;
+    CircleImageView profileCircleImageView;
+    String profileImageUrl = "https://lh3.googleusercontent.com/-4qy2DfcXBoE/AAAAAAAAAAI/AAAAAAAABi4/rY-jrtntAi4/s640-il/photo.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Home");
-        }
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,136 +50,48 @@ public class MainActivity extends AppCompatActivity
                         }).show();
             }
         });
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navView = findViewById(R.id.nav_view);
 
-        drawer = findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        profileCircleImageView = navigationView.getHeaderView(0).findViewById(R.id.imageView);
-
+        profileCircleImageView = navView.getHeaderView(0).findViewById(R.id.imageView);
         Glide.with(MainActivity.this)
                 .load(profileImageUrl)
                 .into(profileCircleImageView);
 
-        /*
-        Jika savedinstance masih null, maka redirect ke fragment home
-        Berguna ketika aplikasi pertama dijalankan untuk mengisi halaman default
-        dan berguna juga ketika config changes terjadi, karena fragment akan
-        secara otomatis ditambahkan ke dalam activity,
-        maka kita tidak perlu replace fragment kembali.
-         */
-        if (savedInstanceState == null) {
-            Fragment currentFragment = new HomeFragment();
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.content_main, currentFragment)
-                    .commit();
-        }
-    }
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
+                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_cart)
+                .setDrawerLayout(drawerLayout)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        drawer.removeDrawerListener(toggle);
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+//        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+//            @Override
+//            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+//                switch (destination.getId()){
+//                    case R.id.nav_subway :
+//                        startActivity(new Intent(MainActivity.this, SubwayActivity.class));
+//                        break;
+//                }
+//            }
+//        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        Bundle bundle = new Bundle();
-        Fragment fragment = null;
-
-        String title = "";
-
-        if (id == R.id.nav_home) {
-
-            fragment = new HomeFragment();
-
-        } else if (id == R.id.nav_camera) {
-
-            /*
-            Gunakanlah setarguments untuk mengirimkan data ke fragmet
-             */
-            title = "Camera";
-            fragment = new PageFragment();
-            bundle.putString(PageFragment.EXTRAS, title);
-            fragment.setArguments(bundle);
-
-        } else if (id == R.id.nav_gallery) {
-            /*
-            Gunakanlah setarguments untuk mengirimkan data ke fragmet
-             */
-            title = "Gallery";
-            fragment = new PageFragment();
-            bundle.putString(PageFragment.EXTRAS, title);
-            fragment.setArguments(bundle);
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        /*
-        Ganti halaman dengan memanggil fragment replace
-         */
-
-        if (fragment != null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.content_main, fragment)
-                    .commit();
-        }
-
-        if (getSupportActionBar() != null)
-            getSupportActionBar().setTitle(title);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 }
