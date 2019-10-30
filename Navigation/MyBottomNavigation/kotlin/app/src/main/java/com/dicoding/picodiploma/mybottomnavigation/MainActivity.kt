@@ -1,53 +1,27 @@
 package com.dicoding.picodiploma.mybottomnavigation
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 
 class MainActivity : AppCompatActivity() {
-
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        val fragment: Fragment
-
-        when (item.itemId) {
-            R.id.navigation_home -> {
-                fragment = HomeFragment()
-                supportFragmentManager.beginTransaction()
-                        .replace(R.id.container_layout, fragment, fragment.javaClass.simpleName)
-                        .commit();
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_dashboard -> {
-
-                fragment = DashboardFragment()
-                supportFragmentManager.beginTransaction()
-                        .replace(R.id.container_layout, fragment, fragment.javaClass.simpleName)
-                        .commit();
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_notifications -> {
-                fragment = NotificationsFragment()
-                supportFragmentManager.beginTransaction()
-                        .replace(R.id.container_layout, fragment, fragment.javaClass.simpleName)
-                        .commit();
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-
-        if (savedInstanceState == null) {
-            navigation.selectedItemId = R.id.navigation_home
-        }
+        val navController = findNavController(R.id.nav_host_fragment)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration.Builder(
+            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_profile
+        ).build()
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
-
 }
