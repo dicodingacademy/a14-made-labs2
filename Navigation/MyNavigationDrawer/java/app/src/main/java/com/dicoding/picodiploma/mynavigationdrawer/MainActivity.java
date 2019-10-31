@@ -64,17 +64,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-//        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-//            @Override
-//            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-//                switch (destination.getId()){
-//                    case R.id.nav_subway :
-//                        startActivity(new Intent(MainActivity.this, SubwayActivity.class));
-//                        break;
-//                }
-//            }
-//        });
+        
     }
 
     @Override
