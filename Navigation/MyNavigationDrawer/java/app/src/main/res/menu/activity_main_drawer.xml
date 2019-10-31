@@ -5,56 +5,52 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black"
-            android:title="@string/home" />
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/camera_photo" />
+            android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/gallery" />
+            android:title="@string/menu_gallery" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/play_slideshow" />
+            android:title="@string/menu_slideshow" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_tools"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/configuration" />
+            android:title="@string/menu_tools" />
         <item
             android:id="@+id/nav_cart"
             android:icon="@drawable/ic_shopping_cart"
-            android:title="@string/cart" />
+            android:title="@string/menu_cart" />
     </group>
 
-    <item android:title="@string/communication">
+    <item android:title="Communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="@string/share" />
+                android:title="@string/menu_share" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="@string/send_message" />
+                android:title="@string/menu_send" />
         </menu>
     </item>
 
-    <item android:title="@string/map">
+    <item android:title="@string/menu_map">
         <menu>
             <item
                 android:id="@+id/nav_map"
                 android:icon="@drawable/ic_map_black"
-                android:title="@string/map" />
+                android:title="@string/menu_map" />
             <item
                 android:id="@+id/nav_hotel"
                 android:icon="@drawable/ic_local_hotel"
-                android:title="@string/hotel" />
+                android:title="@string/menu_hotel" />
             <item
                 android:id="@+id/nav_subway"
                 android:icon="@drawable/ic_subway_black"
-                android:title="@string/subway" />
+                android:title="@string/menu_subway" />
         </menu>
     </item>
 </menu>
