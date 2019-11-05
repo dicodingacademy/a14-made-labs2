@@ -19,7 +19,7 @@ class CuboidModel {
         }
 
     val circumference: Double
-        get() = 4 * (width * length * height)
+        get() = 4 * (width + length + height)
 
     fun save(width: Double, length: Double, height: Double) {
         this.width = width
