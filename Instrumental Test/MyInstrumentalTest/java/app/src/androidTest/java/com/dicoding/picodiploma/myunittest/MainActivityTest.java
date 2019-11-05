@@ -21,7 +21,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4ClassRunner.class)
 public class MainActivityTest {
     private final String dummyVolume = "504.0";
-    private final String dummyCircumference = "2016.0";
+    private final String dummyCircumference = "100.0";
     private final String dummySurfaceArea = "396.0";
     private final String dummyLength = "12.0";
     private final String dummyWidth = "7.0";
