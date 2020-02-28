@@ -5,8 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
-
-import static android.view.Gravity.CENTER;
+import android.view.Gravity;
 
 public class MyButton extends androidx.appcompat.widget.AppCompatButton {
 
@@ -44,7 +43,7 @@ public class MyButton extends androidx.appcompat.widget.AppCompatButton {
         setTextSize(12.f);
 
         // Menjadikan object pada button menjadi center
-        setGravity(CENTER);
+        setGravity(Gravity.CENTER);
 
         // Mengubah text pada button pada kondisi enable dan disable
         setText(isEnabled() ? "Submit" : "Isi Dulu");
