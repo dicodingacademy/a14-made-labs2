@@ -129,7 +129,6 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
     private fun setMode(selectedMode: Int) {
         when (selectedMode) {
             R.id.action_list -> {
