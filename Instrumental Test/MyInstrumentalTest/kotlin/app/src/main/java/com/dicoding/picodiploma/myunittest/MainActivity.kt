@@ -22,14 +22,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        val length = edt_length.text.toString().trim { it <= ' ' }
-        val width = edt_width.text.toString().trim { it <= ' ' }
-        val height = edt_length.text.toString().trim { it <= ' ' }
+        val length = edt_length.text.toString().trim()
+        val width = edt_width.text.toString().trim()
+        val height = edt_height.text.toString().trim()
 
         when {
             length.isEmpty() -> edt_length.error = "Field ini tidak boleh kosong"
             width.isEmpty() -> edt_width.error = "Field ini tidak boleh kosong"
-            height.isEmpty() -> edt_length.error = "Field ini tidak boleh kosong"
+            height.isEmpty() -> edt_height.error = "Field ini tidak boleh kosong"
             else -> {
                 val l = length.toDouble()
                 val w = width.toDouble()
