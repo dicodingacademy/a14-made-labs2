@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.picodiploma.myrecyclerview.adapter.CardViewHeroAdapter
 import com.dicoding.picodiploma.myrecyclerview.adapter.GridHeroAdapter
 import com.dicoding.picodiploma.myrecyclerview.adapter.ListHeroAdapter
+import com.dicoding.picodiploma.myrecyclerview.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.myrecyclerview.model.Hero
-import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
     private var title = "Mode List"
     private val list = ArrayList<Hero>()
     private var mode: Int = 0
@@ -27,9 +29,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        rv_heroes.setHasFixedSize(true)
+        binding.rvHeroes.setHasFixedSize(true)
         /*
         Gunakanlah savedinstancestate untuk menjaga data ketika terjadi config changes
          */
@@ -90,9 +93,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerList() {
-        rv_heroes.layoutManager = LinearLayoutManager(this)
+        binding.rvHeroes.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(list)
-        rv_heroes.adapter = listHeroAdapter
+        binding.rvHeroes.adapter = listHeroAdapter
 
         listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback{
             override fun onItemClicked(data: Hero) {
@@ -102,9 +105,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerGrid() {
-        rv_heroes.layoutManager = GridLayoutManager(this, 2)
+        binding.rvHeroes.layoutManager = GridLayoutManager(this, 2)
         val gridHeroAdapter = GridHeroAdapter(list)
-        rv_heroes.adapter = gridHeroAdapter
+        binding.rvHeroes.adapter = gridHeroAdapter
 
         gridHeroAdapter.setOnItemClickCallback(object : GridHeroAdapter.OnItemClickCallback{
             override fun onItemClicked(data: Hero) {
@@ -114,9 +117,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerCardView() {
-        rv_heroes.layoutManager = LinearLayoutManager(this)
+        binding.rvHeroes.layoutManager = LinearLayoutManager(this)
         val cardViewHeroAdapter = CardViewHeroAdapter(list)
-        rv_heroes.adapter = cardViewHeroAdapter
+        binding.rvHeroes.adapter = cardViewHeroAdapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
