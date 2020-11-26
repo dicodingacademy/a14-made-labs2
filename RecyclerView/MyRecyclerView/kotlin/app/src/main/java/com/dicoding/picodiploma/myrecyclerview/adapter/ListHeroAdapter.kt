@@ -1,14 +1,12 @@
 package com.dicoding.picodiploma.myrecyclerview.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.dicoding.picodiploma.myrecyclerview.R
+import com.dicoding.picodiploma.myrecyclerview.databinding.ItemRowHeroBinding
 import com.dicoding.picodiploma.myrecyclerview.model.Hero
-import kotlinx.android.synthetic.main.item_row_hero.view.*
 import java.util.*
 
 /**
@@ -23,8 +21,8 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.Adap
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_hero, viewGroup, false)
-        return ListViewHolder(view)
+        val binding = ItemRowHeroBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        return ListViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
@@ -33,16 +31,16 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.Adap
 
     override fun getItemCount(): Int = listHero.size
 
-    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ListViewHolder(private val binding: ItemRowHeroBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(hero: Hero) {
-            with(itemView){
+            with(binding){
                 Glide.with(itemView.context)
                         .load(hero.photo)
                         .apply(RequestOptions().override(55, 55))
-                        .into(img_item_photo)
+                        .into(imgItemPhoto)
 
-                tv_item_name.text = hero.name
-                tv_item_description.text = hero.description
+                tvItemName.text = hero.name
+                tvItemDescription.text = hero.description
 
                 itemView.setOnClickListener { onItemClickCallback?.onItemClicked(hero) }
             }
