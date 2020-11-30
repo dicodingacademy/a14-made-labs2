@@ -1,5 +1,9 @@
-apply plugin: 'com.android.application'
-apply plugin: "androidx.navigation.safeargs"
+
+plugins {
+    id 'com.android.application'
+    id "androidx.navigation.safeargs"
+}
+
 
 android {
     compileSdkVersion 30
