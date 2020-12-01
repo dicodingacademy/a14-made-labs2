@@ -6,24 +6,27 @@ import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.dicoding.picodiploma.mylocalization.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val pokeCount = 3
         val hello = resources.getString(R.string.hello_world, "Narenda Wicaksono", pokeCount, "Yoza Aprilio")
 
-        tv_hello.text = hello
+        binding.tvHello.text = hello
 
         val songCount = 5
         val pluralText = resources.getQuantityString(R.plurals.numberOfSongsAvailable, songCount, songCount)
-        tv_plural.text = pluralText
+        binding.tvPlural.text = pluralText
 
-        tv_xliff.text = resources.getString(R.string.app_homeurl)
+        binding.tvXliff.text = resources.getString(R.string.app_homeurl)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
