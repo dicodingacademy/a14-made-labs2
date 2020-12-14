@@ -136,23 +136,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setMode(int selectedMode) {
-        switch (selectedMode) {
-            case R.id.action_list:
-                title = "Mode List";
-                showRecyclerList();
-                break;
-
-            case R.id.action_grid:
-                title = "Mode Grid";
-                showRecyclerGrid();
-                break;
-
-            case R.id.action_cardview:
-                title = "Mode CardView";
-                showRecyclerCardView();
-                break;
+        if (selectedMode == R.id.action_list) {
+            title = "Mode List";
+            showRecyclerList();
+        } else if (selectedMode == R.id.action_grid) {
+            title = "Mode Grid";
+            showRecyclerGrid();
+        } else if (selectedMode == R.id.action_cardview) {
+            title = "Mode CardView";
+            showRecyclerCardView();
         }
-
         mode = selectedMode;
         setActionBarTitle(title);
     }
