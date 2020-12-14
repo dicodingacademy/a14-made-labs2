@@ -37,7 +37,7 @@
         </FrameLayout>
 
         <TextView
-            style="@style/TextContent.Black"
+            style="@style/TextContent"
             android:textSize="32sp"
             android:text="@string/dummy_value"
             android:layout_marginTop="16dp"/>
@@ -134,7 +134,7 @@
         </RelativeLayout>
 
         <Button
-            android:text="@string/buy"
-            style="@style/ButtonGeneral" />
+            style="@style/ButtonGeneral"
+            android:text="@string/buy" />
     </LinearLayout>
 </ScrollView>
