@@ -1,35 +1,25 @@
 package com.dicoding.picodiploma.mynavigationdrawer
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.ui.*
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-
 import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-
 import de.hdodenhof.circleimageview.CircleImageView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-    internal lateinit var profileCircleImageView: CircleImageView
-    internal var profileImageUrl =
+    private lateinit var profileCircleImageView: CircleImageView
+    private var profileImageUrl =
             "https://lh3.googleusercontent.com/-4qy2DfcXBoE/AAAAAAAAAAI/AAAAAAAABi4/rY-jrtntAi4/s640-il/photo.jpg"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,11 +49,10 @@ class MainActivity : AppCompatActivity() {
                 .load(profileImageUrl)
                 .into(profileCircleImageView)
 
-        appBarConfiguration = AppBarConfiguration.Builder(
+        appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_cart)
-                .setOpenableLayout(drawerLayout)
-                .build()
+                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_cart),
+                drawerLayout)
 
         val navController = findNavController(R.id.nav_host_fragment)
         setupActionBarWithNavController(navController, appBarConfiguration)
