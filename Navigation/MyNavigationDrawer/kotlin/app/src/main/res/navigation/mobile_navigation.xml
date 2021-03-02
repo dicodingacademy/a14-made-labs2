@@ -24,24 +24,6 @@
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.dicoding.picodiploma.mynavigationdrawer.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
-
-    <fragment
-        android:id="@+id/nav_share"
-        android:name="com.dicoding.picodiploma.mynavigationdrawer.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
-
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.dicoding.picodiploma.mynavigationdrawer.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
-
-    <fragment
         android:id="@+id/nav_cart"
         android:name="com.dicoding.picodiploma.mynavigationdrawer.CartFragment"
         android:label="@string/menu_cart"
