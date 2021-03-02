@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.mycustomview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
@@ -12,7 +13,7 @@ import android.view.View.OnTouchListener
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.res.ResourcesCompat
 
-class MyEditText : AppCompatEditText {
+class MyEditText : AppCompatEditText, OnTouchListener {
 
     internal lateinit var mClearButtonImage: Drawable
 
@@ -43,47 +44,7 @@ class MyEditText : AppCompatEditText {
         mClearButtonImage = ResourcesCompat.getDrawable(resources, R.drawable.ic_close_black_24dp, null) as Drawable
 
         // Menambahkan aksi kepada clear button
-        setOnTouchListener(OnTouchListener { v, event ->
-            if (compoundDrawablesRelative[2] != null) {
-                val clearButtonStart: Float
-                val clearButtonEnd: Float
-                var isClearButtonClicked = false
-                when (layoutDirection) {
-                    View.LAYOUT_DIRECTION_RTL -> {
-                        clearButtonEnd = (mClearButtonImage.intrinsicWidth + paddingStart).toFloat()
-                        when {
-                            event.x < clearButtonEnd -> isClearButtonClicked = true
-                        }
-                    }
-                    else -> {
-                        clearButtonStart = (width - paddingEnd - mClearButtonImage.intrinsicWidth).toFloat()
-                        when {
-                            event.x > clearButtonStart -> isClearButtonClicked = true
-                        }
-                    }
-                }
-                when {
-                    isClearButtonClicked -> when {
-                        event.action == MotionEvent.ACTION_DOWN -> {
-                            mClearButtonImage = ResourcesCompat.getDrawable(resources, R.drawable.ic_close_black_24dp, null) as Drawable
-                            showClearButton()
-                            return@OnTouchListener true
-                        }
-                        event.action == MotionEvent.ACTION_UP -> {
-                            mClearButtonImage = ResourcesCompat.getDrawable(resources, R.drawable.ic_close_black_24dp, null) as Drawable
-                            when {
-                                text != null -> text?.clear()
-                            }
-                            hideClearButton()
-                            return@OnTouchListener true
-                        }
-                        else -> return@OnTouchListener false
-                    }
-                    else -> return@OnTouchListener false
-                }
-            }
-            false
-        })
+        setOnTouchListener(this)
 
         // Menambahkan aksi ketika ada perubahan text akan memunculkan clear button
         addTextChangedListener(object : TextWatcher {
@@ -92,9 +53,7 @@ class MyEditText : AppCompatEditText {
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                when {
-                    !s.toString().isEmpty() -> showClearButton()
-                }
+                if (s.toString().isNotEmpty()) showClearButton() else hideClearButton()
             }
 
             override fun afterTextChanged(s: Editable) {
@@ -107,17 +66,63 @@ class MyEditText : AppCompatEditText {
     private fun showClearButton() {
         // Sets the Drawables (if any) to appear to the left of,
         // above, to the right of, and below the text.
-        setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, // Top of text.
-                mClearButtonImage, null)// Start of text.
-        // End of text.
-        // Below text.
+        setCompoundDrawablesRelativeWithIntrinsicBounds(
+                null,               // Start of text.
+                null,               // Top of text.
+                mClearButtonImage,  // End of text.
+                null)               // Below text.
+
     }
 
     // Menghilangkan clear button
     private fun hideClearButton() {
-        setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, null, null)// Start of text.
-        // Top of text.
-        // End of text.
-        // Below text.
+        setCompoundDrawablesRelativeWithIntrinsicBounds(
+                null,               // Start of text.
+                null,               // Top of text.
+                null,               // End of text.
+                null)               // Below text.
+
+    }
+
+    override fun onTouch(v: View?, event: MotionEvent): Boolean {
+        if (compoundDrawablesRelative[2] != null) {
+            val clearButtonStart: Float
+            val clearButtonEnd: Float
+            var isClearButtonClicked = false
+            when (layoutDirection) {
+                View.LAYOUT_DIRECTION_RTL -> {
+                    clearButtonEnd = (mClearButtonImage.intrinsicWidth + paddingStart).toFloat()
+                    when {
+                        event.x < clearButtonEnd -> isClearButtonClicked = true
+                    }
+                }
+                else -> {
+                    clearButtonStart = (width - paddingEnd - mClearButtonImage.intrinsicWidth).toFloat()
+                    when {
+                        event.x > clearButtonStart -> isClearButtonClicked = true
+                    }
+                }
+            }
+            when {
+                isClearButtonClicked -> when {
+                    event.action == MotionEvent.ACTION_DOWN -> {
+                        mClearButtonImage = ResourcesCompat.getDrawable(resources, R.drawable.ic_close_black_24dp, null) as Drawable
+                        showClearButton()
+                        return true
+                    }
+                    event.action == MotionEvent.ACTION_UP -> {
+                        mClearButtonImage = ResourcesCompat.getDrawable(resources, R.drawable.ic_close_black_24dp, null) as Drawable
+                        when {
+                            text != null -> text?.clear()
+                        }
+                        hideClearButton()
+                        return true
+                    }
+                    else -> return false
+                }
+                else -> return false
+            }
+        }
+        return false
     }
 }
