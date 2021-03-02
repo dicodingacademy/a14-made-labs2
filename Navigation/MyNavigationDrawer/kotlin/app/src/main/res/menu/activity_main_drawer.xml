@@ -28,7 +28,7 @@
                 android:title="@string/menu_map" />
             <item
                 android:id="@+id/nav_hotel"
-                android:icon="@drawable/ic_local_hotel"
+                android:icon="@drawable/ic_hotel"
                 android:title="@string/menu_hotel" />
             <item
                 android:id="@+id/nav_subway"
