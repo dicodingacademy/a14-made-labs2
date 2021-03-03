@@ -37,6 +37,6 @@ class HomeFragment : Fragment() {
         val tvLabel: TextView = view.findViewById(R.id.section_label)
         val index = arguments?.getInt(ARG_SECTION_NUMBER, 0)
 
-        tvLabel.text = "${getString(R.string.content_tab_text)} $index"
+        tvLabel.text = getString(R.string.content_tab_text, index)
     }
 }
