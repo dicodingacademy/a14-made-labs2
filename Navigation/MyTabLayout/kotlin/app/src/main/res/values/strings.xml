@@ -5,5 +5,5 @@
     <string name="tab_text_3">Setting</string>
     <string name="content_tab_home">Welcome Home</string>
     <string name="content_tab_profile">Change your Profile here</string>
-    <string name="content_tab_text">This is Tab</string>
+    <string name="content_tab_text">This is Tab %1$d</string>
 </resources>
