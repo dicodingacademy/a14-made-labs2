@@ -44,8 +44,8 @@ public class HomeFragment extends Fragment {
         int index = 1;
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
+            textView.setText(getString(R.string.content_tab_text, index));
         }
 
-        textView.setText(getString(R.string.content_tab_text) + " " + index);
     }
 }

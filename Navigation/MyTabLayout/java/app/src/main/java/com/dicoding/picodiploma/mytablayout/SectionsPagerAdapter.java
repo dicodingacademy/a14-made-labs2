@@ -1,30 +1,19 @@
 package com.dicoding.picodiploma.mytablayout;
 
-import android.content.Context;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class SectionsPagerAdapter extends FragmentPagerAdapter {
+public class SectionsPagerAdapter extends FragmentStateAdapter {
 
-    @StringRes
-    private final int[] TAB_TITLES = new int[]{
-            R.string.tab_text_1,
-            R.string.tab_text_2,
-            R.string.tab_text_3
-    };
-    private final Context mContext;
-
-    public SectionsPagerAdapter(Context context, FragmentManager fm) {
-        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        mContext = context;
+    public SectionsPagerAdapter(AppCompatActivity activity) {
+        super(activity);
     }
 
+//    @NonNull
 //    @Override
-//    public Fragment getItem(int position) {
+//    public Fragment createFragment(int position) {
 //        Fragment fragment = null;
 //        switch (position) {
 //            case 0:
@@ -37,21 +26,20 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 //        }
 //        return fragment;
 //    }
+//
+//    @Override
+//    public int getItemCount() {
+//        return 2;
+//    }
 
+    @NonNull
     @Override
-    public Fragment getItem(int position) {
-        Fragment fragment = HomeFragment.newInstance(position + 1);
-        return fragment;
+    public Fragment createFragment(int position) {
+        return HomeFragment.newInstance(position + 1);
     }
 
-    @Nullable
     @Override
-    public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getString(TAB_TITLES[position]);
-    }
-
-    @Override
-    public int getCount() {
+    public int getItemCount() {
         return 3;
     }
 }
