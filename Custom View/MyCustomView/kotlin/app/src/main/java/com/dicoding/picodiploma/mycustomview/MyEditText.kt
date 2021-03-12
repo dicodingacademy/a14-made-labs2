@@ -66,7 +66,7 @@ class MyEditText : AppCompatEditText, OnTouchListener {
     private fun showClearButton() {
         // Sets the Drawables (if any) to appear to the left of,
         // above, to the right of, and below the text.
-        setCompoundDrawablesRelativeWithIntrinsicBounds(
+        setCompoundDrawablesWithIntrinsicBounds(
                 null,               // Start of text.
                 null,               // Top of text.
                 mClearButtonImage,  // End of text.
@@ -76,7 +76,7 @@ class MyEditText : AppCompatEditText, OnTouchListener {
 
     // Menghilangkan clear button
     private fun hideClearButton() {
-        setCompoundDrawablesRelativeWithIntrinsicBounds(
+        setCompoundDrawablesWithIntrinsicBounds(
                 null,               // Start of text.
                 null,               // Top of text.
                 null,               // End of text.
@@ -85,7 +85,7 @@ class MyEditText : AppCompatEditText, OnTouchListener {
     }
 
     override fun onTouch(v: View?, event: MotionEvent): Boolean {
-        if (compoundDrawablesRelative[2] != null) {
+        if (compoundDrawables[2] != null) {
             val clearButtonStart: Float
             val clearButtonEnd: Float
             var isClearButtonClicked = false

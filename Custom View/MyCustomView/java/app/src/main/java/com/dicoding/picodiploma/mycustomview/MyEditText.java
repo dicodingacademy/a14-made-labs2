@@ -75,7 +75,7 @@ public class MyEditText extends AppCompatEditText implements View.OnTouchListene
     private void showClearButton() {
         // Sets the Drawables (if any) to appear to the left of,
         // above, to the right of, and below the text.
-        setCompoundDrawablesRelativeWithIntrinsicBounds(
+        setCompoundDrawablesWithIntrinsicBounds(
                 null,               // Start of text.
                 null,               // Top of text.
                 mClearButtonImage,  // End of text.
@@ -84,7 +84,7 @@ public class MyEditText extends AppCompatEditText implements View.OnTouchListene
 
     // Menghilangkan clear button
     private void hideClearButton() {
-        setCompoundDrawablesRelativeWithIntrinsicBounds(
+        setCompoundDrawablesWithIntrinsicBounds(
                 null,             // Start of text.
                 null,             // Top of text.
                 null,             // End of text.
@@ -93,7 +93,7 @@ public class MyEditText extends AppCompatEditText implements View.OnTouchListene
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if ((getCompoundDrawablesRelative()[2] != null)) {
+        if ((getCompoundDrawables()[2] != null)) {
             float clearButtonStart;
             float clearButtonEnd;
             boolean isClearButtonClicked = false;
